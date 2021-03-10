@@ -51,12 +51,19 @@ class Criterion extends HotelSearchCriterionType
     public function __construct(Criteria $criterion)
     {
         $this->ExactMatch = $criterion->exactMatch;
+        $this->Radius = $criterion->radius;
+
+        if (null !== $criterion->Position) {
+            $this->Position = $criterion->position;
+        }
 
         foreach ($criterion->hotelReferences as $hotelReference) {
             $this->HotelRef[] = new HotelRef($hotelReference);
         }
 
-        $this->StayDateRange = new StayDateRange($criterion->stayStart, $criterion->stayEnd);
+        if (null !== $criterion->stayStart && null !== $criterion->stayEnd) {
+            $this->StayDateRange = new StayDateRange($criterion->stayStart, $criterion->stayEnd);
+        }
 
         foreach ($criterion->rates as $rate) {
             $this->RateRange[] = new RateRange($rate);

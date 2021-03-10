@@ -40,6 +40,6 @@ class HandlerSell extends StandardResponseHandler
      */
     public function analyze(SendResult $response)
     {
-        //TODO
+        return $this->analyzeSimpleResponseErrorCodeAndMessage($response);
     }
 }

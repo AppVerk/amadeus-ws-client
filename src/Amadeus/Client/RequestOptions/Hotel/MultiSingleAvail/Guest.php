@@ -66,4 +66,9 @@ class Guest extends LoadParamsFromArray
      * @var int
      */
     public $amount;
+
+    /**
+     * @var int
+     */
+    public $age;
 }
