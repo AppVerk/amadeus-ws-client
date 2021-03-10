@@ -20,32 +20,28 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Pnr\NameChange;
-
-use Amadeus\Client\Struct\Hotel\Sell\OtherPaxNamesDetails as HotelSellPND;
+namespace Amadeus\Client\Struct\Hotel\Sell;
 
 /**
- * OtherPaxNamesDetails
+ * SystemIdentifier
  *
- * @package Amadeus\Client\Struct\Pnr\NameChange
- * @author Dieter Devlieghere <dermikagh@gmail.com>
+ * @package Amadeus\Client\Struct\Hotel\Sell
+ * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class OtherPaxNamesDetails extends HotelSellPND
+class SystemIdentifier
 {
     /**
-     * NN1 Romanizable Native Name
-     * NN2 Non-Romanizable Native Name
-     * UN  Universal Name
-     *
-     * @var string
+     * @var DeliveringSystem
      */
-    public $nameType;
+    public $deliveringSystem;
 
     /**
-     * N No (not the reference name)
-     * Y Yes (reference name)
+     * SystemIdentifier constructor.
      *
-     * @var string
+     * @param string $companyId
      */
-    public $referenceName;
+    public function __construct($companyId = DeliveringSystem::COMPANY_WEBSERVICES)
+    {
+        $this->deliveringSystem = new DeliveringSystem($companyId);
+    }
 }

@@ -20,32 +20,34 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Pnr\NameChange;
-
-use Amadeus\Client\Struct\Hotel\Sell\OtherPaxNamesDetails as HotelSellPND;
+namespace Amadeus\Client\Struct\Hotel\Sell;
 
 /**
- * OtherPaxNamesDetails
+ * GuestContactInfo
  *
- * @package Amadeus\Client\Struct\Pnr\NameChange
- * @author Dieter Devlieghere <dermikagh@gmail.com>
+ * @package Amadeus\Client\Struct\Hotel\Sell
+ * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class OtherPaxNamesDetails extends HotelSellPND
+class GuestContactInfo
 {
+    const TYPE_EMAIL = "EML";
     /**
-     * NN1 Romanizable Native Name
-     * NN2 Non-Romanizable Native Name
-     * UN  Universal Name
-     *
      * @var string
      */
-    public $nameType;
+    public $phoneOrEmailType = self::TYPE_EMAIL;
 
     /**
-     * N No (not the reference name)
-     * Y Yes (reference name)
-     *
      * @var string
      */
-    public $referenceName;
+    public $emailAddress;
+
+    /**
+     * GuestContactInfo constructor.
+     *
+     * @param string $emailAddress
+     */
+    public function __construct($emailAddress)
+    {
+        $this->emailAddress = $emailAddress;
+    }
 }

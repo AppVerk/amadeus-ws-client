@@ -20,32 +20,28 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Pnr\NameChange;
-
-use Amadeus\Client\Struct\Hotel\Sell\OtherPaxNamesDetails as HotelSellPND;
+namespace Amadeus\Client\Struct\Hotel\Sell;
 
 /**
- * OtherPaxNamesDetails
+ * OccupantPersonalInformation
  *
- * @package Amadeus\Client\Struct\Pnr\NameChange
- * @author Dieter Devlieghere <dermikagh@gmail.com>
+ * @package Amadeus\Client\Struct\Hotel\Sell
+ * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class OtherPaxNamesDetails extends HotelSellPND
+class OccupantPersonalInformation
 {
-    /**
-     * NN1 Romanizable Native Name
-     * NN2 Non-Romanizable Native Name
-     * UN  Universal Name
+    const GENDER_FEMALE = "F";
+    const GENDER_MALE = "M";
+
+     /**
+     * self::GENDER_*
      *
      * @var string
      */
-    public $nameType;
+    public $regulatoryGender;
 
     /**
-     * N No (not the reference name)
-     * Y Yes (reference name)
-     *
-     * @var string
+     * @var DocumentIdentification
      */
-    public $referenceName;
+    public $documentIdentification;
 }

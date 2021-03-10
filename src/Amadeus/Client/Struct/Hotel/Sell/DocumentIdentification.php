@@ -20,57 +20,48 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Result;
+namespace Amadeus\Client\Struct\Hotel\Sell;
 
 /**
- * NotOk
+ * DocumentIdentification
  *
- * @package Amadeus\Client\Result
- * @author Dieter Devlieghere <dermikagh@gmail.com>
+ * @package Amadeus\Client\Struct\Hotel\Sell
+ * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class NotOk
+class DocumentIdentification
 {
+    const TYPE_CEDULA_ARGENTINIAN_ID = "CED";
     /**
-     * Error/warning code
-     *
-     * @var mixed
+     *  NUMBER FOR BRAZILIANS AND RESIDENT ALIENS WHO PAY TAXES IN BRAZIL
      */
-    public $code;
+    const TYPE_CADASTRO_DE_PESSOAS_FISICAS = "CPF";
+    const TYPE_LOCAL_ID_DOCUMENT = "ID";
+    const TYPE_NATIONAL_ID_CARD = "NI";
+    const TYPE_OTHER_ID_DOCUMENT = "OTH";
+    const TYPE_PASSPORT = "PT";
+    const TYPE_VISA = "VI";
 
     /**
-     * Message
+     * self::TYPE_*
      *
      * @var string
      */
-    public $text;
+    public $type;
 
     /**
-     * Error/warning level
-     *
      * @var string
      */
-    public $level;
+    public $number;
 
     /**
-     * Source of error/warning
+     * DocumentIdentification constructor.
      *
-     * @var string
+     * @param string $number
+     * @param string $type
      */
-    public $source;
-
-    /**
-     * NotOk constructor.
-     *
-     * @param string|int|null $code
-     * @param string|null $text
-     * @param string|null $level
-     * @param string|null $source
-     */
-    public function __construct($code = null, $text = null, $level = null, $source = null)
+    public function __construct($number, $type)
     {
-        $this->code = $code;
-        $this->text = $text;
-        $this->level = $level;
-        $this->source = $source;
+        $this->type = $type;
+        $this->number = $number;
     }
 }

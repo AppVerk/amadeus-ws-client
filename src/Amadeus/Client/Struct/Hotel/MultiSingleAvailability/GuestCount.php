@@ -20,32 +20,36 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Pnr\NameChange;
+namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
 
-use Amadeus\Client\Struct\Hotel\Sell\OtherPaxNamesDetails as HotelSellPND;
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Guest;
 
 /**
- * OtherPaxNamesDetails
+ * GuestCount
  *
- * @package Amadeus\Client\Struct\Pnr\NameChange
- * @author Dieter Devlieghere <dermikagh@gmail.com>
+ * @package Amadeus\Client\Struct\Hotel\MultiSingleAvailability
+ * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class OtherPaxNamesDetails extends HotelSellPND
+class GuestCount
 {
-    /**
-     * NN1 Romanizable Native Name
-     * NN2 Non-Romanizable Native Name
-     * UN  Universal Name
-     *
-     * @var string
-     */
-    public $nameType;
+    public $AgeQualifyingCode;
+
+    public $Age;
+
+    public $Count;
+
+    public $AgeBucket;
+
+    public $ResGuestRPH;
 
     /**
-     * N No (not the reference name)
-     * Y Yes (reference name)
+     * GuestCount constructor.
      *
-     * @var string
+     * @param Guest $guest
      */
-    public $referenceName;
+    public function __construct(Guest $guest)
+    {
+        $this->AgeQualifyingCode = $guest->occupantCode;
+        $this->Count = $guest->amount;
+    }
 }

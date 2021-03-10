@@ -20,32 +20,54 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Pnr\NameChange;
+namespace Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail;
 
-use Amadeus\Client\Struct\Hotel\Sell\OtherPaxNamesDetails as HotelSellPND;
+use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * OtherPaxNamesDetails
+ * Criteria
  *
- * @package Amadeus\Client\Struct\Pnr\NameChange
- * @author Dieter Devlieghere <dermikagh@gmail.com>
+ * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
+ * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class OtherPaxNamesDetails extends HotelSellPND
+class Criteria extends LoadParamsFromArray
 {
-    /**
-     * NN1 Romanizable Native Name
-     * NN2 Non-Romanizable Native Name
-     * UN  Universal Name
-     *
-     * @var string
-     */
-    public $nameType;
+    const ALT_AVAIL_NEVER = "Never";
 
     /**
-     * N No (not the reference name)
-     * Y Yes (reference name)
+     * @var bool
+     */
+    public $exactMatch;
+
+    /**
+     * @var HotelReference[]
+     */
+    public $hotelReferences = [];
+
+    /**
+     * @var \DateTime
+     */
+    public $stayStart;
+
+    /**
+     * @var \DateTime
+     */
+    public $stayEnd;
+
+    /**
+     * @var Rates[]
+     */
+    public $rates = [];
+
+    /**
+     * @var Room[]
+     */
+    public $rooms = [];
+
+    /**
+     * self::ALT_AVAIL_*
      *
      * @var string
      */
-    public $referenceName;
+    public $alternateAvailability;
 }

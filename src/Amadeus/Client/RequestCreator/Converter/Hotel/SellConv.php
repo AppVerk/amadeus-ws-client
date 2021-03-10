@@ -20,32 +20,27 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Pnr\NameChange;
+namespace Amadeus\Client\RequestCreator\Converter\Hotel;
 
-use Amadeus\Client\Struct\Hotel\Sell\OtherPaxNamesDetails as HotelSellPND;
+use Amadeus\Client\RequestCreator\Converter\BaseConverter;
+use Amadeus\Client\RequestOptions\HotelSellOptions;
+use Amadeus\Client\Struct;
 
 /**
- * OtherPaxNamesDetails
+ * Hotel_Sell Request converter
  *
- * @package Amadeus\Client\Struct\Pnr\NameChange
- * @author Dieter Devlieghere <dermikagh@gmail.com>
+ * @package Amadeus\Client\RequestCreator\Converter\Hotel
+ * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class OtherPaxNamesDetails extends HotelSellPND
+class SellConv extends BaseConverter
 {
     /**
-     * NN1 Romanizable Native Name
-     * NN2 Non-Romanizable Native Name
-     * UN  Universal Name
-     *
-     * @var string
+     * @param HotelSellOptions $requestOptions
+     * @param int|string $version
+     * @return Struct\Hotel\Sell
      */
-    public $nameType;
-
-    /**
-     * N No (not the reference name)
-     * Y Yes (reference name)
-     *
-     * @var string
-     */
-    public $referenceName;
+    public function convert($requestOptions, $version)
+    {
+        return new Struct\Hotel\Sell($requestOptions);
+    }
 }

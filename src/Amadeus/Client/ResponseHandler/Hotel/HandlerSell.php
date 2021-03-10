@@ -20,32 +20,26 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Pnr\NameChange;
+namespace Amadeus\Client\ResponseHandler\Hotel;
 
-use Amadeus\Client\Struct\Hotel\Sell\OtherPaxNamesDetails as HotelSellPND;
+use Amadeus\Client\ResponseHandler\StandardResponseHandler;
+use Amadeus\Client\Result;
+use Amadeus\Client\Session\Handler\SendResult;
 
 /**
- * OtherPaxNamesDetails
+ * HandlerSell
  *
- * @package Amadeus\Client\Struct\Pnr\NameChange
- * @author Dieter Devlieghere <dermikagh@gmail.com>
+ * @package Amadeus\Client\ResponseHandler\Hotel
+ * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class OtherPaxNamesDetails extends HotelSellPND
+class HandlerSell extends StandardResponseHandler
 {
     /**
-     * NN1 Romanizable Native Name
-     * NN2 Non-Romanizable Native Name
-     * UN  Universal Name
-     *
-     * @var string
+     * @param SendResult $response
+     * @return Result
      */
-    public $nameType;
-
-    /**
-     * N No (not the reference name)
-     * Y Yes (reference name)
-     *
-     * @var string
-     */
-    public $referenceName;
+    public function analyze(SendResult $response)
+    {
+        //TODO
+    }
 }

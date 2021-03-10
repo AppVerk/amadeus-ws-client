@@ -20,32 +20,45 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Pnr\NameChange;
-
-use Amadeus\Client\Struct\Hotel\Sell\OtherPaxNamesDetails as HotelSellPND;
+namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
 
 /**
- * OtherPaxNamesDetails
+ * ItemSearchCriterionType
  *
- * @package Amadeus\Client\Struct\Pnr\NameChange
- * @author Dieter Devlieghere <dermikagh@gmail.com>
+ * @package Amadeus\Client\Struct\Hotel\MultiSingleAvailability
+ * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class OtherPaxNamesDetails extends HotelSellPND
+class ItemSearchCriterionType
 {
     /**
-     * NN1 Romanizable Native Name
-     * NN2 Non-Romanizable Native Name
-     * UN  Universal Name
-     *
-     * @var string
+     * @var bool
      */
-    public $nameType;
+    public $ExactMatch;
+
+    public $ImportanceType;
+
+    public $Ranking;
+
+    public $Position;
+
+    public $Address;
+
+    public $Telephone;
+
+    public $RefPoint = [];
+
+    public $CodeRef;
 
     /**
-     * N No (not the reference name)
-     * Y Yes (reference name)
-     *
-     * @var string
+     * @var HotelRef[]
      */
-    public $referenceName;
+    public $HotelRef = [];
+
+    public $Radius;
+
+    public $MapArea;
+
+    public $AdditionalContents;
+
+
 }

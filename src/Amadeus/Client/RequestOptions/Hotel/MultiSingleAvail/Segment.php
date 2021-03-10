@@ -20,32 +20,41 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Pnr\NameChange;
+namespace Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail;
 
-use Amadeus\Client\Struct\Hotel\Sell\OtherPaxNamesDetails as HotelSellPND;
+use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * OtherPaxNamesDetails
+ * Segment
  *
- * @package Amadeus\Client\Struct\Pnr\NameChange
- * @author Dieter Devlieghere <dermikagh@gmail.com>
+ * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
+ * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class OtherPaxNamesDetails extends HotelSellPND
+class Segment extends LoadParamsFromArray
 {
-    /**
-     * NN1 Romanizable Native Name
-     * NN2 Non-Romanizable Native Name
-     * UN  Universal Name
-     *
-     * @var string
-     */
-    public $nameType;
+    const SOURCE_LEISURE = "Leisure";
+    const SOURCE_DISTRIBUTION = "Distribution";
+    const SOURCE_MULTI_SOURCE = "MultiSource";
 
     /**
-     * N No (not the reference name)
-     * Y Yes (reference name)
+     * self::SOURCE_*
      *
      * @var string
      */
-    public $referenceName;
+    public $infoSource;
+
+    /**
+     * @var bool
+     */
+    public $bestOnly;
+
+    /**
+     * @var bool
+     */
+    public $availableOnly;
+
+    /**
+     * @var Criteria[]
+     */
+    public $criteria = [];
 }

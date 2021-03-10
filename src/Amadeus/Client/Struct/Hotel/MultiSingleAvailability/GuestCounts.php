@@ -20,32 +20,40 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Pnr\NameChange;
+namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
 
-use Amadeus\Client\Struct\Hotel\Sell\OtherPaxNamesDetails as HotelSellPND;
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Guest;
 
 /**
- * OtherPaxNamesDetails
+ * GuestCounts
  *
- * @package Amadeus\Client\Struct\Pnr\NameChange
- * @author Dieter Devlieghere <dermikagh@gmail.com>
+ * @package Amadeus\Client\Struct\Hotel\MultiSingleAvailability
+ * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class OtherPaxNamesDetails extends HotelSellPND
+class GuestCounts
 {
     /**
-     * NN1 Romanizable Native Name
-     * NN2 Non-Romanizable Native Name
-     * UN  Universal Name
-     *
-     * @var string
+     * @var bool
      */
-    public $nameType;
+    public $IsPerRoom;
 
     /**
-     * N No (not the reference name)
-     * Y Yes (reference name)
-     *
-     * @var string
+     * @var GuestCount[]
      */
-    public $referenceName;
+    public $GuestCount = [];
+
+    /**
+     * GuestCounts constructor.
+     *
+     * @param bool $isPerRoom
+     * @param Guest[] $guests
+     */
+    public function __construct($isPerRoom, $guests)
+    {
+        $this->IsPerRoom = $isPerRoom;
+
+        foreach ($guests as $guest) {
+            $this->GuestCount[] = new GuestCount($guest);
+        }
+    }
 }

@@ -20,32 +20,40 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Pnr\NameChange;
-
-use Amadeus\Client\Struct\Hotel\Sell\OtherPaxNamesDetails as HotelSellPND;
+namespace Amadeus\Client\Struct\Hotel\Sell;
 
 /**
- * OtherPaxNamesDetails
+ * BookingCompany
  *
- * @package Amadeus\Client\Struct\Pnr\NameChange
- * @author Dieter Devlieghere <dermikagh@gmail.com>
+ * @package Amadeus\Client\Struct\Hotel\Sell
+ * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class OtherPaxNamesDetails extends HotelSellPND
+class BookingCompany
 {
     /**
-     * NN1 Romanizable Native Name
-     * NN2 Non-Romanizable Native Name
-     * UN  Universal Name
-     *
-     * @var string
+     * @var CompanyQualifier
      */
-    public $nameType;
+    public $companyQualifier;
 
     /**
-     * N No (not the reference name)
-     * Y Yes (reference name)
-     *
-     * @var string
+     * @var CompanyName
      */
-    public $referenceName;
+    public $companyName;
+
+    /**
+     * BookingCompany constructor.
+     *
+     * @param string|null $company Company name
+     * @param string|null $type AttributeDetails::TYPE_*
+     */
+    public function __construct($company = null, $type = null)
+    {
+        if (!is_null($company)) {
+            $this->companyName = new CompanyName($company);
+        }
+
+        if (!is_null($type)) {
+            $this->companyQualifier = new CompanyQualifier($type);
+        }
+    }
 }

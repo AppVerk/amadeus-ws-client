@@ -20,32 +20,41 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Pnr\NameChange;
-
-use Amadeus\Client\Struct\Hotel\Sell\OtherPaxNamesDetails as HotelSellPND;
+namespace Amadeus\Client\Struct\Hotel\Sell;
 
 /**
- * OtherPaxNamesDetails
+ * TravelAgentRef
  *
- * @package Amadeus\Client\Struct\Pnr\NameChange
- * @author Dieter Devlieghere <dermikagh@gmail.com>
+ * @package Amadeus\Client\Struct\Hotel\Sell
+ * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class OtherPaxNamesDetails extends HotelSellPND
+class TravelAgentRef
 {
-    /**
-     * NN1 Romanizable Native Name
-     * NN2 Non-Romanizable Native Name
-     * UN  Universal Name
-     *
-     * @var string
-     */
-    public $nameType;
+    const REFERENCE_PHONE = "AP";
+    const REFERENCE_EMAIL = "APE";
+    const REFERENCE_FAX = "APF";
 
     /**
-     * N No (not the reference name)
-     * Y Yes (reference name)
+     * self::REFERENCE_*
      *
      * @var string
      */
-    public $referenceName;
+    public $status;
+
+    /**
+     * @var Reference
+     */
+    public $reference;
+
+    /**
+     * TravelAgentRef constructor.
+     *
+     * @param string $status self::REFERENCE_*
+     * @param int $segmentTattoo
+     */
+    public function __construct($status, $segmentTattoo)
+    {
+        $this->status = $status;
+        $this->reference = new Reference($segmentTattoo);
+    }
 }

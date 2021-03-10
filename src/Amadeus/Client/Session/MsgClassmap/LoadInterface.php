@@ -20,32 +20,21 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Pnr\NameChange;
-
-use Amadeus\Client\Struct\Hotel\Sell\OtherPaxNamesDetails as HotelSellPND;
+namespace Amadeus\Client\Session\MsgClassmap;
 
 /**
- * OtherPaxNamesDetails
+ * LoadInterface
  *
- * @package Amadeus\Client\Struct\Pnr\NameChange
- * @author Dieter Devlieghere <dermikagh@gmail.com>
+ * @package Amadeus\Client\Session\MsgClassmap
+ * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class OtherPaxNamesDetails extends HotelSellPND
+interface LoadInterface
 {
     /**
-     * NN1 Romanizable Native Name
-     * NN2 Non-Romanizable Native Name
-     * UN  Universal Name
+     * Loads extra class map entries for a given message and version
      *
-     * @var string
+     * @param string|float $version
+     * @return array
      */
-    public $nameType;
-
-    /**
-     * N No (not the reference name)
-     * Y Yes (reference name)
-     *
-     * @var string
-     */
-    public $referenceName;
+    public static function loadClassMapForMessage($version);
 }

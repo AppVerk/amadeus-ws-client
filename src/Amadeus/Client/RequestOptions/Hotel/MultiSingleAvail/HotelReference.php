@@ -20,32 +20,40 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Pnr\NameChange;
+namespace Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail;
 
-use Amadeus\Client\Struct\Hotel\Sell\OtherPaxNamesDetails as HotelSellPND;
+use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * OtherPaxNamesDetails
+ * HotelReference
  *
- * @package Amadeus\Client\Struct\Pnr\NameChange
- * @author Dieter Devlieghere <dermikagh@gmail.com>
+ * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
+ * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class OtherPaxNamesDetails extends HotelSellPND
+class HotelReference extends LoadParamsFromArray
 {
     /**
-     * NN1 Romanizable Native Name
-     * NN2 Non-Romanizable Native Name
-     * UN  Universal Name
-     *
      * @var string
      */
-    public $nameType;
+    public $chainCode;
 
     /**
-     * N No (not the reference name)
-     * Y Yes (reference name)
-     *
      * @var string
      */
-    public $referenceName;
+    public $cityCode;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $hotelCode;
+
+    /**
+     * @var string
+     */
+    public $codeContext;
 }

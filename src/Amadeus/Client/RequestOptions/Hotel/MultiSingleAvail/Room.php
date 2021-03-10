@@ -20,32 +20,41 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Pnr\NameChange;
+namespace Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail;
 
-use Amadeus\Client\Struct\Hotel\Sell\OtherPaxNamesDetails as HotelSellPND;
+use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * OtherPaxNamesDetails
+ * Room
  *
- * @package Amadeus\Client\Struct\Pnr\NameChange
- * @author Dieter Devlieghere <dermikagh@gmail.com>
+ * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
+ * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class OtherPaxNamesDetails extends HotelSellPND
+class Room extends LoadParamsFromArray
 {
     /**
-     * NN1 Romanizable Native Name
-     * NN2 Non-Romanizable Native Name
-     * UN  Universal Name
+     * Your unique ID for this room request
      *
-     * @var string
+     * @var int
      */
-    public $nameType;
+    public $id;
 
     /**
-     * N No (not the reference name)
-     * Y Yes (reference name)
+     * How many rooms?
      *
-     * @var string
+     * @var int
      */
-    public $referenceName;
+    public $amount;
+
+    /**
+     * All guests share the same room?
+     *
+     * @var bool
+     */
+    public $guestsIsPerRoom = true;
+
+    /**
+     * @var Guest[]
+     */
+    public $guests = [];
 }

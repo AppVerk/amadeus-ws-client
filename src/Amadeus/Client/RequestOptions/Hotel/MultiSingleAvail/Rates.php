@@ -20,32 +20,48 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Pnr\NameChange;
+namespace Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail;
 
-use Amadeus\Client\Struct\Hotel\Sell\OtherPaxNamesDetails as HotelSellPND;
+use Amadeus\Client\LoadParamsFromArray;
 
 /**
- * OtherPaxNamesDetails
+ * Rates
  *
- * @package Amadeus\Client\Struct\Pnr\NameChange
- * @author Dieter Devlieghere <dermikagh@gmail.com>
+ * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
+ * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class OtherPaxNamesDetails extends HotelSellPND
+class Rates extends LoadParamsFromArray
 {
-    /**
-     * NN1 Romanizable Native Name
-     * NN2 Non-Romanizable Native Name
-     * UN  Universal Name
-     *
-     * @var string
-     */
-    public $nameType;
+    const TIMEUNIT_YEAR = "Year";
+    const TIMEUNIT_MONTH = "Month";
+    const TIMEUNIT_WEEK = "Week";
+    const TIMEUNIT_DAY = "Day";
+    const TIMEUNIT_HOUR = "Hour";
+    const TIMEUNIT_SECOND = "Second";
+    const TIMEUNIT_FULL_DURATION = "FullDuration";
+    const TIMEUNIT_MINUTE = "Minute";
 
     /**
-     * N No (not the reference name)
-     * Y Yes (reference name)
+     * @var double
+     */
+    public $min;
+
+    /**
+     * @var double
+     */
+    public $max;
+
+    /**
+     * self::TIMEUNIT_*
      *
      * @var string
      */
-    public $referenceName;
+    public $timeUnit;
+
+    /**
+     * 3-character ISO currency code
+     *
+     * @var string
+     */
+    public $currency;
 }

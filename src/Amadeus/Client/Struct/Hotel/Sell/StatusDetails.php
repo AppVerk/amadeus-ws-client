@@ -20,32 +20,45 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Pnr\NameChange;
-
-use Amadeus\Client\Struct\Hotel\Sell\OtherPaxNamesDetails as HotelSellPND;
+namespace Amadeus\Client\Struct\Hotel\Sell;
 
 /**
- * OtherPaxNamesDetails
+ * StatusDetails
  *
- * @package Amadeus\Client\Struct\Pnr\NameChange
- * @author Dieter Devlieghere <dermikagh@gmail.com>
+ * @package Amadeus\Client\Struct\Hotel\Sell
+ * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class OtherPaxNamesDetails extends HotelSellPND
+class StatusDetails
 {
-    /**
-     * NN1 Romanizable Native Name
-     * NN2 Non-Romanizable Native Name
-     * UN  Universal Name
-     *
-     * @var string
-     */
-    public $nameType;
+    const INDICATOR_GROUP_BILLING = "GB";
+    const INDICATOR_GROUP_BOOKING = "GR";
+
+    const ACTION_YES = 1;
+    const ACTION_NO = 2;
 
     /**
-     * N No (not the reference name)
-     * Y Yes (reference name)
+     * self::INDICATOR_*
      *
      * @var string
      */
-    public $referenceName;
+    public $indicator;
+
+    /**
+     * self::ACTION_*
+     *
+     * @var string|int
+     */
+    public $action;
+
+    /**
+     * StatusDetails constructor.
+     *
+     * @param string $indicator self::INDICATOR_*
+     * @param int|string $action self::ACTION_*
+     */
+    public function __construct($indicator, $action)
+    {
+        $this->indicator = $indicator;
+        $this->action = $action;
+    }
 }
