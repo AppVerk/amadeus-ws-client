@@ -30,4 +30,8 @@ namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
  */
 class AvailRequestSegments extends AvailRequestSegmentsType
 {
+    /**
+     * @var int
+     */
+    public $MaximumWaitTime;
 }

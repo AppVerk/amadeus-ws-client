@@ -28,7 +28,7 @@ namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
  * @package Amadeus\Client\Struct\Hotel\MultiSingleAvailability
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class HotelSearchCriterionType
+class HotelSearchCriterionType extends ItemSearchCriterionType
 {
     /**
      * @var HotelAmenity[]

@@ -34,9 +34,4 @@ class AvailRequestSegmentsType
      * @var AvailRequestSegment[]
      */
     public $AvailRequestSegment = [];
-
-    /**
-     * @var int
-     */
-    public $MaximumWaitTime;
 }
