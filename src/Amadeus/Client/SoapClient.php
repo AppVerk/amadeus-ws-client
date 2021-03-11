@@ -116,7 +116,7 @@ class SoapClient extends \SoapClient implements Log\LoggerAwareInterface
         } else {
             $newDom = new \DOMDocument('1.0', 'UTF-8');
             $newDom->preserveWhiteSpace = false;
-            $newDom->loadXML($transform);
+            $newDom->loadXML(str_replace('ns1:', '', $transform));
 
             $newRequest = $newDom->saveXML();
         }

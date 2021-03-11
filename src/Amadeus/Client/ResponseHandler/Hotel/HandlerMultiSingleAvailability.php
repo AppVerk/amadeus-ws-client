@@ -34,21 +34,12 @@ use Amadeus\Client\Session\Handler\SendResult;
  */
 class HandlerMultiSingleAvailability extends StandardResponseHandler
 {
-    const Q_ERR_CODE = "/m:OTA_HotelAvailRS/m:Errors/m:Error/@Code";
-    const Q_ERR_SRC = "/m:OTA_HotelAvailRS/m:Errors/m:Error/@Status";
-    const Q_ERR_MSG = "/m:OTA_HotelAvailRS/m:Errors/m:Error/@ShortText";
-
     /**
      * @param SendResult $response
      * @return Result
      */
     public function analyze(SendResult $response)
     {
-        return $this->analyzeWithErrorCodeMsgQuerySource(
-            $response,
-            self::Q_ERR_CODE,
-            self::Q_ERR_MSG,
-            self::Q_ERR_SRC
-        );
+        return $this->analyzeSimpleResponseErrorCodeAndMessage($response);
     }
 }
