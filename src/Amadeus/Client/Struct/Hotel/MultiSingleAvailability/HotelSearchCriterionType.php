@@ -120,33 +120,5 @@ class HotelSearchCriterionType extends ItemSearchCriterionType
      */
     public $UserGeneratedContent;
 
-    /**
-     * @var bool
-     */
-    public $ExactMatch;
-
-    public $ImportanceType;
-
-    public $Ranking;
-
-    public $Position;
-
-    public $Address;
-
-    public $Telephone;
-
-    public $RefPoint = [];
-
-    public $CodeRef;
-
-    /**
-     * @var HotelRef[]
-     */
-    public $HotelRef = [];
-
-    public $Radius;
-
-    public $MapArea;
-
-    public $AdditionalContents;
+    public $TPA_Extensions;
 }

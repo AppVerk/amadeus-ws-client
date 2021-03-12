@@ -30,15 +30,6 @@ namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
  */
 class ItemSearchCriterionType
 {
-    /**
-     * @var bool
-     */
-    public $ExactMatch;
-
-    public $ImportanceType;
-
-    public $Ranking;
-
     public $Position;
 
     public $Address;
@@ -60,5 +51,12 @@ class ItemSearchCriterionType
 
     public $AdditionalContents;
 
+    /**
+     * @var bool
+     */
+    public $ExactMatch;
 
+    public $ImportanceType;
+
+    public $Ranking;
 }
