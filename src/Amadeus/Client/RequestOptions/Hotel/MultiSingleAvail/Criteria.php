@@ -79,10 +79,15 @@ class Criteria extends LoadParamsFromArray
     /**
      * @var Award[]
      */
-    public $avard;
+    public $avard = [];
 
     /**
      * @var MealPlan
      */
     public $meelPlan;
+
+    /**
+     * @var Amenity[]
+     */
+    public $amenity = [];
 }

@@ -22,6 +22,8 @@
 
 namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
 
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Amenity;
+
 /**
  * HotelAmenity
  *
@@ -43,4 +45,9 @@ class HotelAmenity
      * @var bool
      */
     public $ComplimentaryInd;
+
+    public function __construct(Amenity $amenity)
+    {
+        $this->Code = (string) $amenity->code;
+    }
 }

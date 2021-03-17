@@ -30,7 +30,7 @@ class MealPlan
     public const BREAKFAST_AND_LUNCH = 23;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $codes = [];
+    public $code = [];
 }

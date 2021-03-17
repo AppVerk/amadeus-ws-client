@@ -94,10 +94,22 @@ class Criterion extends HotelSearchCriterionType
             }
         }
 
-        if (!empty($criterion->avard)) {
-            foreach ($criterion->avard as $item) {
-                $this->Award[] = new Award($item);
+        foreach ($criterion->avard as $item) {
+            $this->Award[] = new Award($item);
+        }
+        
+        if (null !== $criterion->meelPlan) {
+            $this->MealPlan = new MealPlan($criterion->meelPlan);
+        }
+
+        foreach ($criterion->amenity as $item) {
+            if ($item->belongsToRoom()) {
+                $this->RoomAmenity[] = new RoomAmenity($item);
+                
+                continue;
             }
+
+            $this->HotelAmenity = new HotelAmenity($item);
         }
 
         $this->AlternateAvailability = $criterion->alternateAvailability;
