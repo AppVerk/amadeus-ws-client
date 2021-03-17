@@ -30,4 +30,10 @@ namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
  */
 class Recreation
 {
+    /**
+     * Used to identify a specific recreation activity. Refer to OpenTravel Code list Recreation Srvc Type (RST).
+     *
+     * @var string
+     */
+    public $Code;
 }

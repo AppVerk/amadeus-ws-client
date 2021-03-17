@@ -30,4 +30,19 @@ namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
  */
 class HotelFeature
 {
+    /**
+     * Hotel security feature that is used as a qualifier when searching for properties.
+     * Refer to OpenTravel Code list Security Feature Code (SEC).
+     *
+     * @var string
+     */
+    public $SecurityFeatureCode;
+
+    /**
+     * Hotel accessibility feature that is used as a qualifier when searching for properties.
+     * Refer to OpenTravel Code list Disability Feature Code (PHY).
+     *
+     * @var string
+     */
+    public $AccessibilityCode;
 }

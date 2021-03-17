@@ -30,4 +30,10 @@ namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
  */
 class MealPlan
 {
+    /**
+     * Refer to OpenTravel Code List Meal Plan Type (MPT).
+     *
+     * @var string[]
+     */
+    public $Code = [];
 }

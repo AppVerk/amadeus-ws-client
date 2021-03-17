@@ -30,4 +30,17 @@ namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
  */
 class HotelAmenity
 {
+    /**
+     * Refer to OTA Code List Hotel Amenity Code (HAC).
+     *
+     * @var string
+     */
+    public $Code;
+
+    /**
+     * When true, there is no charge for the amenity. When false, there is a fee associated with the amenity.
+     *
+     * @var bool
+     */
+    public $ComplimentaryInd;
 }

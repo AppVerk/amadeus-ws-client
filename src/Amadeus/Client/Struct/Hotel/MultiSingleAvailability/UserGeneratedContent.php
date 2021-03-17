@@ -30,4 +30,15 @@ namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
  */
 class UserGeneratedContent
 {
+    /**
+     * @var string
+     */
+    public $TypeOfRating;
+
+    /**
+     * User rating for the property on which the search is made.
+     *
+     * @var int
+     */
+    public $Rating;
 }

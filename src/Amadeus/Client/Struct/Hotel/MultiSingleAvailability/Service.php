@@ -30,4 +30,24 @@ namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
  */
 class Service
 {
+    /**
+     * Used to identify a specific business service. Refer to OpenTravel Code list Business Srvc Type (BUS).
+     *
+     * @var string
+     */
+    public $BusinessServiceCode;
+
+    /**
+     * The representation of the specific service being reserved.
+     *
+     * @var string
+     */
+    public $ServiceInventoryCode;
+
+    /**
+     * The number of services (e.g., tickets, rounds of golf).
+     *
+     * @var int
+     */
+    public $Quantity;
 }

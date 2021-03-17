@@ -30,4 +30,39 @@ namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
  */
 class Award
 {
+    /**
+     * The name of the award or ratings provider.
+     * The name of the award or ratings provider (e.g., Michelin, American Automobile Association (AAA)).
+     *
+     * @var string
+     */
+    public $Provider;
+
+    /**
+     * The actual award or rating received by the hotel facility (e.g. 4 stars, 3 diamonds).
+     * If used in conjunction with RatingSymbol only the numeric rating would be passed here.
+     *
+     * @var string
+     */
+    public $Rating;
+
+    /**
+     * The date the award was received.
+     *
+     * @var string
+     */
+    public $Date;
+
+    /**
+     * When true indicates the property has received official permission from the award provider to use the rating
+     * in publications and marketing materials; when false this permission has not been granted.
+     *
+     * @var bool
+     */
+    public $OfficialAppointmentInd;
+
+    /**
+     * @var string
+     */
+    public $RatingSymbol;
 }
