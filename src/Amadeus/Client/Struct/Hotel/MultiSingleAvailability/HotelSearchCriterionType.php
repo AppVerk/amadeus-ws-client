@@ -119,6 +119,4 @@ class HotelSearchCriterionType extends ItemSearchCriterionType
      * @var UserGeneratedContent
      */
     public $UserGeneratedContent;
-
-    public $TPA_Extensions;
 }

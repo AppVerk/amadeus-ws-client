@@ -37,10 +37,19 @@ class Criterion extends HotelSearchCriterionType
      */
     public $AlternateAvailability;
 
+    /***
+     * @var string
+     */
     public $AddressSearchScope;
 
+    /***
+     * @var string
+     */
     public $InfoSource;
 
+    /***
+     * @var string
+     */
     public $MoreDataEchoToken;
 
     /**

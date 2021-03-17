@@ -30,14 +30,29 @@ namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
  */
 class ItemSearchCriterionType
 {
+    /**
+     * @var Position
+     */
     public $Position;
 
+    /**
+     * @var Address
+     */
     public $Address;
 
+    /**
+     * @var Telephone
+     */
     public $Telephone;
 
+    /**
+     * @var RefPoint[]
+     */
     public $RefPoint = [];
 
+    /**
+     * @var CodeRef
+     */
     public $CodeRef;
 
     /**
@@ -45,10 +60,19 @@ class ItemSearchCriterionType
      */
     public $HotelRef = [];
 
+    /**
+     * @var Radius
+     */
     public $Radius;
 
+    /**
+     * @var MapArea
+     */
     public $MapArea;
 
+    /**
+     * @var AdditionalContent
+     */
     public $AdditionalContents;
 
     /**
@@ -56,7 +80,13 @@ class ItemSearchCriterionType
      */
     public $ExactMatch;
 
+    /**
+     * @var string
+     */
     public $ImportanceType;
 
+    /**
+     * @var int
+     */
     public $Ranking;
 }

@@ -39,9 +39,7 @@ class Loader
      *
      * @var array
      */
-    protected static $extraClassMapNeeded = [
-        'Hotel_MultiSingleAvailability'
-    ];
+    protected static $extraClassMapNeeded = [];
 
 
     /**
