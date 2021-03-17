@@ -62,10 +62,6 @@ class Criterion extends HotelSearchCriterionType
         $this->ExactMatch = $criterion->exactMatch;
         $this->Radius = $criterion->radius;
 
-        if (null !== $criterion->Position) {
-            $this->Position = $criterion->position;
-        }
-
         foreach ($criterion->hotelReferences as $hotelReference) {
             $this->HotelRef[] = new HotelRef($hotelReference);
         }
@@ -83,6 +79,24 @@ class Criterion extends HotelSearchCriterionType
 
             foreach ($criterion->rooms as $room) {
                 $this->RoomStayCandidates->RoomStayCandidate[] = new RoomStayCandidate($room);
+            }
+        }
+
+        if (null !== $criterion->position) {
+            $this->Position = new Position();
+            $this->Position->Latitude = (string) $criterion->position->latitude;
+            $this->Position->Longitude = (string) $criterion->position->longitude;
+
+            if (null !== $criterion->position->distance) {
+                $this->Radius = new Radius();
+                $this->Radius->Distance = (string) $criterion->position->distance;
+                $this->Radius->DistanceMeasure = $criterion->position->measureCode;
+            }
+        }
+
+        if (!empty($criterion->avard)) {
+            foreach ($criterion->avard as $item) {
+                $this->Award[] = new Award($item);
             }
         }
 

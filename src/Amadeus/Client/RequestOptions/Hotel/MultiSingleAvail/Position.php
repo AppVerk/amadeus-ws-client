@@ -22,62 +22,46 @@
 
 namespace Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail;
 
-use Amadeus\Client\LoadParamsFromArray;
-
-/**
- * Criteria
- *
- * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
- * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
- */
-class Criteria extends LoadParamsFromArray
+class Position
 {
-    const ALT_AVAIL_NEVER = "Never";
+    public const MILES_MEASURE = 1;
+    public const KILOMETERS_MEASURE = 2;
+    public const METERS_MEASURE = 3;
+
+    public const EXACT_ACCURACY = 1;
+    public const BLOCK_ACCURACY = 2;
+    public const STREET_ACCURACY = 3;
 
     /**
-     * @var bool
-     */
-    public $exactMatch;
-
-    /**
-     * @var HotelReference[]
-     */
-    public $hotelReferences = [];
-
-    /**
-     * @var \DateTime
-     */
-    public $stayStart;
-
-    /**
-     * @var \DateTime
-     */
-    public $stayEnd;
-
-    /**
-     * @var Rates[]
-     */
-    public $rates = [];
-
-    /**
-     * @var Room[]
-     */
-    public $rooms = [];
-
-    /**
-     * self::ALT_AVAIL_*
+     * The measure of the angular distance on a meridian north or south of the equator.
      *
-     * @var string
+     * @var float
      */
-    public $alternateAvailability;
+    public $latitude;
 
     /**
-     * @var Position
+     * The measure of the angular distance on a meridian east or west of the prime meridian.
+     *
+     * @var float
      */
-    public $position;
+    public $longitude;
 
     /**
-     * @var Award[]
+     * Refer to OpenTravel Code List Position Accuracy Code (PAC).
+     *
+     * @var int
      */
-    public $avard;
+    public $accuracy;
+
+    /**
+     * @var int
+     */
+    public $distance;
+
+    /**
+     * Code List Unit of Measure Code (UOM).
+     *
+     * @var int
+     */
+    public $distanceMeasure;
 }

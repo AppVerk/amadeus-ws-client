@@ -22,6 +22,8 @@
 
 namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
 
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Award as RequestAward;
+
 /**
  * Award
  *
@@ -31,7 +33,6 @@ namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
 class Award
 {
     /**
-     * The name of the award or ratings provider.
      * The name of the award or ratings provider (e.g., Michelin, American Automobile Association (AAA)).
      *
      * @var string
@@ -45,24 +46,10 @@ class Award
      * @var string
      */
     public $Rating;
-
-    /**
-     * The date the award was received.
-     *
-     * @var string
-     */
-    public $Date;
-
-    /**
-     * When true indicates the property has received official permission from the award provider to use the rating
-     * in publications and marketing materials; when false this permission has not been granted.
-     *
-     * @var bool
-     */
-    public $OfficialAppointmentInd;
-
-    /**
-     * @var string
-     */
-    public $RatingSymbol;
+    
+    public function __construct(RequestAward $award)
+    {
+        $this->Provider = $award->provider;
+        $this->Rating = (string) $award->rating;
+    }
 }
