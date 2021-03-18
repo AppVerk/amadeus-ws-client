@@ -25,6 +25,11 @@ class HotelEnhancedPricing extends BaseWsMessage
     public $RateRangeOnly = false;
 
     /**
+     * @var bool
+     */
+    public $AvailRatesOnly = true;
+
+    /**
      * @var string
      */
     public $PrimaryLangID;
