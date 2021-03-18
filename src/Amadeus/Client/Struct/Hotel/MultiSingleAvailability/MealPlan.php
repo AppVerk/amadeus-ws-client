@@ -38,9 +38,9 @@ class MealPlan
      * @var string
      */
     public $Code = [];
-    
-    public function __constructor(RequestMealPlan $mealPlan)
+
+    public function __construct(RequestMealPlan $mealPlan)
     {
-        $this->Code[] = $mealPlan->code;
+        $this->Code = $mealPlan->codes;
     }
 }

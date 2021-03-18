@@ -48,6 +48,6 @@ class HotelAmenity
 
     public function __construct(Amenity $amenity)
     {
-        $this->Code = (string) $amenity->code;
+        $this->Code = $amenity->code;
     }
 }

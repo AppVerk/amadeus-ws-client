@@ -72,10 +72,7 @@ class RefPoint
 
     public function __construct(PointReference $pointReference)
     {
-        $this->RefPointType = null === $pointReference->refPointType
-            ? null
-            : (string) $pointReference->refPointType
-        ;
+        $this->RefPointType = $pointReference->refPointType;
         $this->StateProv = $pointReference->stateProv;
         $this->CountryCode = $pointReference->countryCode;
         $this->Name = $pointReference->name;

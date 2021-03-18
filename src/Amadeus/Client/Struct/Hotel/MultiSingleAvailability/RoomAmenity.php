@@ -34,6 +34,6 @@ class RoomAmenity extends RoomAmenityPrefType
 {
     public function __construct(Amenity $amenity)
     {
-        $this->RoomAmenity = (string) $amenity->code;
+        $this->RoomAmenity = $amenity->code;
     }
 }

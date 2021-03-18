@@ -34,5 +34,5 @@ class MealPlan extends LoadParamsFromArray
     /**
      * @var string[]
      */
-    public $code = [];
+    public $codes = [];
 }
