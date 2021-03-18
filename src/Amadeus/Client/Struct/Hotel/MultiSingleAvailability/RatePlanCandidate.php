@@ -8,6 +8,11 @@ use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\RatePlanCandidate as Re
 class RatePlanCandidate
 {
     /**
+     * @var string
+     */
+    public $RatePlanCode;
+
+    /**
      * @var HotelRefs
      */
     public $HotelRefs;
@@ -54,5 +59,6 @@ class RatePlanCandidate
         }
 
         $this->MealsIncluded = new MealsIncluded($ratePlanCandidate->includedMealPlans);
+        $this->RatePlanCode = $ratePlanCandidate->ratePlanCode;
     }
 }

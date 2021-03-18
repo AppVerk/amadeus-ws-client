@@ -48,6 +48,16 @@ class RoomStayCandidate
     public $GuestCounts;
 
     /**
+     * @var string
+     */
+    public $BookingCode;
+
+    /**
+     * @var string
+     */
+    public $RoomTypeCode;
+
+    /**
      * RoomStayCandidate constructor.
      *
      * @param Room $room
@@ -56,7 +66,8 @@ class RoomStayCandidate
     {
         $this->RoomID = $room->id;
         $this->Quantity = $room->amount;
-
+        $this->BookingCode = $room->bookingCode;
+        $this->RoomTypeCode = $room->typeCode;
         $this->GuestCounts = new GuestCounts($room->guestsIsPerRoom, $room->guests);
     }
 }
