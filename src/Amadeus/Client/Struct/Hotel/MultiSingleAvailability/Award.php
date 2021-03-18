@@ -50,6 +50,6 @@ class Award
     public function __construct(RequestAward $award)
     {
         $this->Provider = $award->provider;
-        $this->Rating = (string) $award->rating;
+        $this->Rating = null === $award->rating ? null : (string) $award->rating;
     }
 }

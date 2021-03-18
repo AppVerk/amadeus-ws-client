@@ -66,6 +66,10 @@ class Criterion extends HotelSearchCriterionType
             $this->HotelRef[] = new HotelRef($hotelReference);
         }
 
+        foreach ($criterion->pointReferences as $pointReference) {
+            $this->RefPoint[] = new RefPoint($pointReference);
+        }
+
         if (null !== $criterion->stayStart && null !== $criterion->stayEnd) {
             $this->StayDateRange = new StayDateRange($criterion->stayStart, $criterion->stayEnd);
         }
@@ -86,12 +90,17 @@ class Criterion extends HotelSearchCriterionType
             $this->Position = new Position();
             $this->Position->Latitude = (string) $criterion->position->latitude;
             $this->Position->Longitude = (string) $criterion->position->longitude;
+            $this->Position->PositionAccuracy = $criterion->position->positionAccuracy;
+        }
 
-            if (null !== $criterion->position->distance) {
-                $this->Radius = new Radius();
-                $this->Radius->Distance = (string) $criterion->position->distance;
-                $this->Radius->DistanceMeasure = $criterion->position->measureCode;
-            }
+        if (null !== $criterion->radius) {
+            $this->Radius = new Radius();
+            $this->Radius->Distance = $criterion->radius;
+            $this->Radius->DistanceMeasure = $criterion->radius->distanceMeasure;
+            $this->Radius->UnitOfMeasureCode = null === $criterion->radius->unitOfMeasureCode
+                ? null
+                : (string) $criterion->radius->unitOfMeasureCode
+            ;
         }
 
         foreach ($criterion->avard as $item) {

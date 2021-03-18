@@ -24,47 +24,34 @@ namespace Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail;
 
 use Amadeus\Client\LoadParamsFromArray;
 
-class Position extends LoadParamsFromArray
+class Radius extends LoadParamsFromArray
 {
     public const MILES_MEASURE_UNIT = 1;
     public const KILOMETERS_MEASURE_UNIT = 2;
     public const METERS_MEASURE_UNIT = 3;
 
-    public const EXACT_ACCURACY = 1;
-    public const BLOCK_ACCURACY = 2;
-    public const STREET_ACCURACY = 3;
+    /**
+     * @var string
+     */
+    public $distance;
 
     /**
      * @var string
      */
-    public $mapURL;
+    public $distanceMeasure;
 
     /**
-     * @var float
+     * @var string
      */
-    public $latitude;
+    public $direction;
 
     /**
-     * @var float
+     * @var string
      */
-    public $longitude;
+    public $distanceMax;
 
     /**
-     * @var float
-     */
-    public $altitude;
-
-    /**
-     * self::*_MEASURE_UNIT
-     *
      * @var int
      */
-    public $altitudeUnitOfMeasureCode;
-
-    /**
-     * self::*_ACCURACY
-     *
-     * @var int
-     */
-    public $positionAccuracy;
+    public $unitOfMeasureCode;
 }

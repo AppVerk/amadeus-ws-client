@@ -80,8 +80,8 @@ class RateRange
      */
     public function __construct(Rates $rates)
     {
-        $this->MinRate = $rates->min;
-        $this->MaxRate = $rates->max;
+        $this->MinRate = (string) $rates->min;
+        $this->MaxRate = (string) $rates->max;
         $this->CurrencyCode = $rates->currency;
         $this->RateTimeUnit = $rates->timeUnit;
     }

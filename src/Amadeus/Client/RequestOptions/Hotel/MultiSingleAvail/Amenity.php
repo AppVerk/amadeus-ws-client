@@ -3,7 +3,9 @@ declare(strict_types=1);
 
 namespace Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail;
 
-class Amenity
+use Amadeus\Client\LoadParamsFromArray;
+
+class Amenity extends LoadParamsFromArray
 {
     public const ALL_DAY_FRONT_DESK = 1;
     public const ALL_DAY_ROOM_SERVICE = 2;
