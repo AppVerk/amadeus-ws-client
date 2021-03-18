@@ -22,6 +22,8 @@
 
 namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
 
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\MealPlan as RequestMealPlan;
+
 /**
  * MealPlan
  *
@@ -33,7 +35,12 @@ class MealPlan
     /**
      * Refer to OpenTravel Code List Meal Plan Type (MPT).
      *
-     * @var string[]
+     * @var string
      */
     public $Code = [];
+
+    public function __construct(RequestMealPlan $mealPlan)
+    {
+        $this->Code = $mealPlan->codes;
+    }
 }

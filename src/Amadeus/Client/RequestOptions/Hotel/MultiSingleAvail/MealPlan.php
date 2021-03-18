@@ -3,7 +3,9 @@ declare(strict_types=1);
 
 namespace Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail;
 
-class MealPlan
+use Amadeus\Client\LoadParamsFromArray;
+
+class MealPlan extends LoadParamsFromArray
 {
     public const ALL_INCLUSIVE = 1;
     public const AMERICAN = 2;
@@ -30,7 +32,7 @@ class MealPlan
     public const BREAKFAST_AND_LUNCH = 23;
 
     /**
-     * @var string
+     * @var string[]
      */
     public $codes = [];
 }

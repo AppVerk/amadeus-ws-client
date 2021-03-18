@@ -22,6 +22,8 @@
 
 namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
 
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Amenity;
+
 /**
  * RoomAmenity
  *
@@ -30,4 +32,8 @@ namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
  */
 class RoomAmenity extends RoomAmenityPrefType
 {
+    public function __construct(Amenity $amenity)
+    {
+        $this->RoomAmenity = $amenity->code;
+    }
 }

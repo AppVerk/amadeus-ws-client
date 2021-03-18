@@ -66,6 +66,10 @@ class Criterion extends HotelSearchCriterionType
             $this->HotelRef[] = new HotelRef($hotelReference);
         }
 
+        foreach ($criterion->pointReferences as $pointReference) {
+            $this->RefPoint[] = new RefPoint($pointReference);
+        }
+
         if (null !== $criterion->stayStart && null !== $criterion->stayEnd) {
             $this->StayDateRange = new StayDateRange($criterion->stayStart, $criterion->stayEnd);
         }
@@ -84,20 +88,40 @@ class Criterion extends HotelSearchCriterionType
 
         if (null !== $criterion->position) {
             $this->Position = new Position();
-            $this->Position->Latitude = (string) $criterion->position->latitude;
-            $this->Position->Longitude = (string) $criterion->position->longitude;
-
-            if (null !== $criterion->position->distance) {
-                $this->Radius = new Radius();
-                $this->Radius->Distance = (string) $criterion->position->distance;
-                $this->Radius->DistanceMeasure = $criterion->position->measureCode;
-            }
+            $this->Position->Latitude = null === $criterion->position->latitude
+                ? null
+                : number_format($criterion->position->latitude, 5, '', '')
+            ;
+            $this->Position->Longitude = null === $criterion->position->longitude
+                ? null
+                : number_format($criterion->position->longitude, 5, '', '')
+            ;
+            $this->Position->PositionAccuracy = $criterion->position->positionAccuracy;
         }
 
-        if (!empty($criterion->avard)) {
-            foreach ($criterion->avard as $item) {
-                $this->Award[] = new Award($item);
+        if (null !== $criterion->radius) {
+            $this->Radius = new Radius();
+            $this->Radius->Distance = $criterion->radius->distance;
+            $this->Radius->DistanceMeasure = $criterion->radius->distanceMeasure;
+            $this->Radius->UnitOfMeasureCode = $criterion->radius->unitOfMeasureCode;
+        }
+
+        foreach ($criterion->avard as $item) {
+            $this->Award[] = new Award($item);
+        }
+        
+        if (null !== $criterion->meelPlan) {
+            $this->MealPlan = new MealPlan($criterion->meelPlan);
+        }
+
+        foreach ($criterion->amenity as $item) {
+            if ($item->belongsToRoom()) {
+                $this->RoomAmenity[] = new RoomAmenity($item);
+                
+                continue;
             }
+
+            $this->HotelAmenity = new HotelAmenity($item);
         }
 
         $this->AlternateAvailability = $criterion->alternateAvailability;

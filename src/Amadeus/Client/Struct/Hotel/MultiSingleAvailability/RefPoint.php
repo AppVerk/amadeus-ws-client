@@ -2,6 +2,8 @@
 
 namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
 
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\PointReference;
+
 class RefPoint
 {
     /**
@@ -67,4 +69,17 @@ class RefPoint
      * @var int
      */
     public $Quantity;
+
+    public function __construct(PointReference $pointReference)
+    {
+        $this->RefPointType = $pointReference->refPointType;
+        $this->StateProv = $pointReference->stateProv;
+        $this->CountryCode = $pointReference->countryCode;
+        $this->Name = $pointReference->name;
+        $this->CityName = $pointReference->cityName;
+        $this->URI = $pointReference->uri;
+        $this->Code = $pointReference->code;
+        $this->CodeContext = $pointReference->codeContext;
+        $this->Quantity = $pointReference->quantity;
+    }
 }

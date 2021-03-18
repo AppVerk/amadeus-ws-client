@@ -45,6 +45,11 @@ class Criteria extends LoadParamsFromArray
     public $hotelReferences = [];
 
     /**
+     * @var PointReference[]
+     */
+    public $pointReferences = [];
+
+    /**
      * @var \DateTime
      */
     public $stayStart;
@@ -77,12 +82,22 @@ class Criteria extends LoadParamsFromArray
     public $position;
 
     /**
+     * @var Radius
+     */
+    public $radius;
+
+    /**
      * @var Award[]
      */
-    public $avard;
+    public $avard = [];
 
     /**
      * @var MealPlan
      */
     public $meelPlan;
+
+    /**
+     * @var Amenity[]
+     */
+    public $amenity = [];
 }

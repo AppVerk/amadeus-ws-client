@@ -22,46 +22,49 @@
 
 namespace Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail;
 
-class Position
+use Amadeus\Client\LoadParamsFromArray;
+
+class Position extends LoadParamsFromArray
 {
-    public const MILES_MEASURE = 1;
-    public const KILOMETERS_MEASURE = 2;
-    public const METERS_MEASURE = 3;
+    public const MILES_MEASURE_UNIT = 1;
+    public const KILOMETERS_MEASURE_UNIT = 2;
+    public const METERS_MEASURE_UNIT = 3;
 
     public const EXACT_ACCURACY = 1;
     public const BLOCK_ACCURACY = 2;
     public const STREET_ACCURACY = 3;
 
     /**
-     * The measure of the angular distance on a meridian north or south of the equator.
-     *
+     * @var string
+     */
+    public $mapURL;
+
+    /**
      * @var float
      */
     public $latitude;
 
     /**
-     * The measure of the angular distance on a meridian east or west of the prime meridian.
-     *
      * @var float
      */
     public $longitude;
 
     /**
-     * Refer to OpenTravel Code List Position Accuracy Code (PAC).
+     * @var float
+     */
+    public $altitude;
+
+    /**
+     * self::*_MEASURE_UNIT
      *
      * @var int
      */
-    public $accuracy;
+    public $altitudeUnitOfMeasureCode;
 
     /**
-     * @var int
-     */
-    public $distance;
-
-    /**
-     * Code List Unit of Measure Code (UOM).
+     * self::*_ACCURACY
      *
      * @var int
      */
-    public $distanceMeasure;
+    public $positionAccuracy;
 }

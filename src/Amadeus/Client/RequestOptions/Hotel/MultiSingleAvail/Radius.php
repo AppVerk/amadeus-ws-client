@@ -20,34 +20,38 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
+namespace Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail;
 
-use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Amenity;
+use Amadeus\Client\LoadParamsFromArray;
 
-/**
- * HotelAmenity
- *
- * @package Amadeus\Client\Struct\Hotel\MultiSingleAvailability
- * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
- */
-class HotelAmenity
+class Radius extends LoadParamsFromArray
 {
+    public const MILES_MEASURE_UNIT = 1;
+    public const KILOMETERS_MEASURE_UNIT = 2;
+    public const METERS_MEASURE_UNIT = 3;
+
     /**
-     * Refer to OTA Code List Hotel Amenity Code (HAC).
-     *
      * @var string
      */
-    public $Code;
+    public $distance;
 
     /**
-     * When true, there is no charge for the amenity. When false, there is a fee associated with the amenity.
-     *
-     * @var bool
+     * @var string
      */
-    public $ComplimentaryInd;
+    public $distanceMeasure;
 
-    public function __construct(Amenity $amenity)
-    {
-        $this->Code = $amenity->code;
-    }
+    /**
+     * @var string
+     */
+    public $direction;
+
+    /**
+     * @var string
+     */
+    public $distanceMax;
+
+    /**
+     * @var int
+     */
+    public $unitOfMeasureCode;
 }
