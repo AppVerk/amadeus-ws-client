@@ -7,12 +7,17 @@ use Amadeus\Client\RequestOptions\HotelEnhancedPricingOptions;
 use Amadeus\Client\Struct\Hotel\MultiSingleAvailability\AvailRequestSegment;
 use Amadeus\Client\Struct\Hotel\MultiSingleAvailability\AvailRequestSegments;
 
-class HotelEnhancedPricing extends BaseWsMessage
+class EnhancedPricing extends BaseWsMessage
 {
     /**
      * @var string
      */
     public $EchoToken = 'Pricing';
+
+    /**
+     * @var string
+     */
+    public $Version;
 
     /**
      * @var bool
@@ -23,6 +28,11 @@ class HotelEnhancedPricing extends BaseWsMessage
      * @var bool
      */
     public $RateRangeOnly = false;
+
+    /**
+     * @var bool
+     */
+    public $AvailRatesOnly = true;
 
     /**
      * @var string
@@ -36,8 +46,7 @@ class HotelEnhancedPricing extends BaseWsMessage
 
     public function __construct(HotelEnhancedPricingOptions $options)
     {
-        $this->EchoToken = $options->echoToken;
-        $this->PrimaryLangID = $options->primaryLangID;
+        $this->PrimaryLangID = $options->languageCode;
         $this->Version = $options->version;
 
         $this->AvailRequestSegments = new AvailRequestSegments();

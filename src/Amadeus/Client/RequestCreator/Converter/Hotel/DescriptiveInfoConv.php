@@ -8,8 +8,13 @@ use Amadeus\Client\Struct;
 
 class DescriptiveInfoConv extends BaseConverter
 {
+    /**
+     * @param HotelDescriptiveInfoOptions $requestOptions
+     * @param int|string $version
+     * @return Struct\Hotel\DescriptiveInfo
+     */
     public function convert($requestOptions, $version)
     {
-        return new Struct\Hotel\HotelDescriptiveInfo($requestOptions);
+        return new Struct\Hotel\DescriptiveInfo($requestOptions);
     }
 }

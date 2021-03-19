@@ -3,8 +3,15 @@ declare(strict_types=1);
 
 namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
 
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\RatePlanCandidate as RequestRatePlanCandidate;
+
 class RatePlanCandidate
 {
+    /**
+     * @var string
+     */
+    public $RatePlanCode;
+
     /**
      * @var HotelRefs
      */
@@ -44,4 +51,14 @@ class RatePlanCandidate
      * @var bool
      */
     public $AvailRatesOnlyInd;
+
+    public function __construct(RequestRatePlanCandidate $ratePlanCandidate)
+    {
+        foreach ($ratePlanCandidate->hotelReferences as $hotelReference) {
+            $this->HotelRefs->HotelRef[] = new HotelRef($hotelReference);
+        }
+
+        $this->MealsIncluded = new MealsIncluded($ratePlanCandidate->includedMealPlans);
+        $this->RatePlanCode = $ratePlanCandidate->ratePlanCode;
+    }
 }

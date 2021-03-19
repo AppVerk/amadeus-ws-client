@@ -114,6 +114,14 @@ class Criterion extends HotelSearchCriterionType
             $this->MealPlan = new MealPlan($criterion->meelPlan);
         }
 
+        if (!empty($criterion->ratePlanCandidates)) {
+            $this->RatePlanCandidates = new RatePlanCandidates();
+
+            foreach ($criterion->ratePlanCandidates as $ratePlan) {
+                $this->RatePlanCandidates->RatePlanCandidate[] = new RatePlanCandidate($ratePlan);
+            }
+        }
+
         foreach ($criterion->amenity as $item) {
             if ($item->belongsToRoom()) {
                 $this->RoomAmenity[] = new RoomAmenity($item);

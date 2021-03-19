@@ -468,7 +468,7 @@ abstract class Base implements HandlerInterface, LoggerAwareInterface
      * @param mixed $level
      * @param string $message
      * @param array $context
-     * @return null
+     * @return void
      */
     protected function log($level, $message, $context = [])
     {
@@ -476,6 +476,6 @@ abstract class Base implements HandlerInterface, LoggerAwareInterface
             $this->setLogger(new NullLogger());
         }
 
-        return $this->logger->log($level, $message, $context);
+        $this->logger->log($level, $message, $context);
     }
 }

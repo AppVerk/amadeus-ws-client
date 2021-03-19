@@ -97,6 +97,11 @@ class Criteria extends LoadParamsFromArray
     public $meelPlan;
 
     /**
+     * @var RatePlanCandidate[]
+     */
+    public $ratePlanCandidates = [];
+
+    /**
      * @var Amenity[]
      */
     public $amenity = [];

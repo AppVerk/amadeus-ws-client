@@ -8,8 +8,13 @@ use Amadeus\Client\Struct;
 
 class EnhancedPricingConv extends BaseConverter
 {
+    /**
+     * @param HotelEnhancedPricingOptions $requestOptions
+     * @param int|string $version
+     * @return Struct\Hotel\EnhancedPricing
+     */
     public function convert($requestOptions, $version)
     {
-        return new Struct\Hotel\HotelEnhancedPricing($requestOptions);
+        return new Struct\Hotel\EnhancedPricing($requestOptions);
     }
 }

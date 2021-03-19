@@ -20,51 +20,26 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail;
+namespace Amadeus\Client\ResponseHandler\Hotel;
 
-use Amadeus\Client\LoadParamsFromArray;
+use Amadeus\Client\ResponseHandler\StandardResponseHandler;
+use Amadeus\Client\Result;
+use Amadeus\Client\Session\Handler\SendResult;
 
 /**
- * Room
+ * Hotel_MultiSingleAvailability Response Handler
  *
- * @package Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail
+ * @package Amadeus\Client\ResponseHandler\Hotel
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class Room extends LoadParamsFromArray
+class HandlerEnhancedPricing extends StandardResponseHandler
 {
     /**
-     * Your unique ID for this room request
-     *
-     * @var int
+     * @param SendResult $response
+     * @return Result
      */
-    public $id;
-
-    /**
-     * How many rooms?
-     *
-     * @var int
-     */
-    public $amount;
-
-    /**
-     * All guests share the same room?
-     *
-     * @var bool
-     */
-    public $guestsIsPerRoom = true;
-
-    /**
-     * @var Guest[]
-     */
-    public $guests = [];
-
-    /**
-     * @var string
-     */
-    public $bookingCode;
-
-    /**
-     * @var string
-     */
-    public $typeCode;
+    public function analyze(SendResult $response)
+    {
+        return $this->analyzeSimpleResponseErrorCodeAndMessage($response);
+    }
 }
