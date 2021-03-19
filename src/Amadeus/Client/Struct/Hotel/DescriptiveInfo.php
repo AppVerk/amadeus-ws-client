@@ -7,16 +7,27 @@ use Amadeus\Client\RequestOptions\HotelDescriptiveInfoOptions;
 
 class DescriptiveInfo extends BaseWsMessage
 {
-    public $HotelDescriptiveInfos;
-    public $EchoToken;
+    /**
+     * @var string
+     */
+    public $EchoToken = 'WithParsing';
+
+    /**
+     * @var string
+     */
     public $Version;
+
+    /**
+     * @var string
+     */
     public $PrimaryLangID;
+
+    public $HotelDescriptiveInfos;
 
     public function __construct(HotelDescriptiveInfoOptions $options)
     {
-        $this->HotelDescriptiveInfos = $options->hotelDescriptiveInfos;
-        $this->EchoToken = $options->echoToken;
         $this->Version = $options->version;
-        $this->PrimaryLangID = $options->primaryLangID;
+        $this->PrimaryLangID = $options->languageCode;
+        $this->HotelDescriptiveInfos = $options->hotelDescriptiveInfos;
     }
 }

@@ -15,6 +15,11 @@ class EnhancedPricing extends BaseWsMessage
     public $EchoToken = 'Pricing';
 
     /**
+     * @var string
+     */
+    public $Version;
+
+    /**
      * @var bool
      */
     public $SummaryOnly = false;
