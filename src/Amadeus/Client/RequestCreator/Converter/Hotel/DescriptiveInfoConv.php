@@ -10,6 +10,6 @@ class DescriptiveInfoConv extends BaseConverter
 {
     public function convert($requestOptions, $version)
     {
-        return new Struct\Hotel\HotelDescriptiveInfo($requestOptions);
+        return new Struct\Hotel\DescriptiveInfo($requestOptions);
     }
 }

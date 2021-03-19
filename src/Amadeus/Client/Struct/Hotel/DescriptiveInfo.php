@@ -5,7 +5,7 @@ namespace Amadeus\Client\Struct\Hotel;
 use Amadeus\Client\Struct\BaseWsMessage;
 use Amadeus\Client\RequestOptions\HotelDescriptiveInfoOptions;
 
-class HotelDescriptiveInfo extends BaseWsMessage
+class DescriptiveInfo extends BaseWsMessage
 {
     public $HotelDescriptiveInfos;
     public $EchoToken;

@@ -10,6 +10,6 @@ class EnhancedPricingConv extends BaseConverter
 {
     public function convert($requestOptions, $version)
     {
-        return new Struct\Hotel\HotelEnhancedPricing($requestOptions);
+        return new Struct\Hotel\EnhancedPricing($requestOptions);
     }
 }
