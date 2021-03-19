@@ -2,8 +2,18 @@
 
 namespace Amadeus\Client\RequestOptions;
 
+use Amadeus\Client\RequestOptions\Hotel\DescriptiveInfo\DescriptiveInfo;
+
 class HotelDescriptiveInfoOptions extends Base
 {
+    public const FULL_INFORMATION_TOKEN = 'WithParsing';
+    public const SHORT_INFORMATION_TOKEN = 'PartialwithParsing';
+
+    /**
+     * @var string
+     */
+    public $echoToken = self::SHORT_INFORMATION_TOKEN;
+
     /**
      * @var string
      */
@@ -16,5 +26,8 @@ class HotelDescriptiveInfoOptions extends Base
      */
     public $languageCode;
 
-    public $hotelDescriptiveInfos;
+    /**
+     * @var DescriptiveInfo[]
+     */
+    public $descriptiveInfos = [];
 }
