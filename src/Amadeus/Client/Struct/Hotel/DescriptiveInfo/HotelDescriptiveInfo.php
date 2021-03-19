@@ -45,6 +45,12 @@ class HotelDescriptiveInfo extends HotelDescriptiveInfoRequestType
 
     public function __construct(DescriptiveInfo $info)
     {
-        //@todo
+        $this->StateCodeList = $info->stateCodeList;
+        $this->CountryCodeList = $info->countryCodeList;
+        $this->BrandCodeList = $info->brandCodeList;
+        $this->MoreDataEchoToken = $info->moreDataEchoToken;
+        $this->ApplicableDate = $info->applicableDate;
+        $this->AffiliationInfo = $info->affiliationInfo;
+        $this->HotelInfo = $info->HotelInfo;
     }
 }
