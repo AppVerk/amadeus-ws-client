@@ -3,7 +3,9 @@ declare(strict_types=1);
 
 namespace Amadeus\Client\RequestOptions\Hotel\DescriptiveInfo;
 
-class ContactInfo
+use Amadeus\Client\LoadParamsFromArray;
+
+class ContactInfo extends LoadParamsFromArray
 {
     /**
      * @var bool

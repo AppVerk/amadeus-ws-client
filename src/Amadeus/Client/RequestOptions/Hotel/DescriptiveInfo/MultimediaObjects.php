@@ -3,7 +3,9 @@ declare(strict_types=1);
 
 namespace Amadeus\Client\RequestOptions\Hotel\DescriptiveInfo;
 
-class MultimediaObjects
+use Amadeus\Client\LoadParamsFromArray;
+
+class MultimediaObjects extends LoadParamsFromArray
 {
     /**
      * @var bool
