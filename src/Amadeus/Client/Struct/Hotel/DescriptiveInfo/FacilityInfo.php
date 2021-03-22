@@ -25,4 +25,10 @@ class FacilityInfo
      * @var bool
      */
     public $SendRestaurants;
+
+    public function __construct(\Amadeus\Client\RequestOptions\Hotel\DescriptiveInfo\FacilityInfo $info){
+        $this->SendGuestRooms = $info->sendGuestRooms;
+        $this->SendMeetingRooms = $info->sendMeetingRooms;
+        $this->SendRestaurants = $info->sendRestaurants;
+    }
 }

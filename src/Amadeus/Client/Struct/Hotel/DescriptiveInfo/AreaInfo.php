@@ -25,4 +25,10 @@ class AreaInfo
      * @var bool
      */
     public $SendRecreations;
+
+    public function __construct(\Amadeus\Client\RequestOptions\Hotel\DescriptiveInfo\AreaInfo $info){
+        $this->SendRefPoints = $info->sendRefPoints;
+        $this->SendAttractions = $info->sendAttractions;
+        $this->SendRecreations = $info->sendRecreations;
+    }
 }

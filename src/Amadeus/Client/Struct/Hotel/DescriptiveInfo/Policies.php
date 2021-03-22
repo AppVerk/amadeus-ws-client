@@ -32,4 +32,12 @@ class Policies extends PoliciesType
      * @var bool
      */
     public $SendPolicies;
+
+    public function __construct(\Amadeus\Client\RequestOptions\Hotel\DescriptiveInfo\Policies $info){
+        $this->GuaranteeRoomTypeViaCRC = $info->guaranteeRoomTypeViaCRC;
+        $this->GuaranteeRoomTypeViaGDS = $info->guaranteeRoomTypeViaGDS;
+        $this->GuaranteeRoomTypeViaProperty = $info->guaranteeRoomTypeViaProperty;
+        $this->SendPolicies = $info->sendPolicies;
+
+    }
 }

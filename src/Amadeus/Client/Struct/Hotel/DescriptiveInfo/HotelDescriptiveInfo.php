@@ -51,19 +51,37 @@ class HotelDescriptiveInfo extends HotelDescriptiveInfoRequestType
         $this->MoreDataEchoToken = $info->moreDataEchoToken;
         $this->ApplicableDate = $info->applicableDate;
         $this->AffiliationInfo = $info->affiliationInfo;
-        $this->FacilityInfo = $info->facilityInfo;
-        $this->Policies = $info->policies;
-        $this->AreaInfo = $info->areaInfo;
-        $this->ContactInfo = $info->contactInfo;
-        $this->MultimediaObjects = $info->multimediaObjects;
-        $this->ChainCode = $info->chainCode;
-        $this->ChainName = $info->chainName;
-        $this->HotelInfo = $info->hotelInfo;
         $this->HotelCode = $info->hotelCode;
         $this->HotelCityCode = $info->hotelCityCode;
         $this->HotelName = $info->hotelName;
         $this->HotelCodeContext = $info->hotelCodeContext;
         $this->BrandName = $info->brandName;
+        $this->ChainCode = $info->chainCode;
+        $this->ChainName = $info->chainName;
+
+        if (!empty($info->facilityInfo)) {
+            $this->FacilityInfo = new FacilityInfo($info->facilityInfo);
+        }
+
+        if (!empty($info->policies)) {
+            $this->Policies = new Policies($info->policies);
+        }
+
+        if(!empty($info->areaInfo)){
+            $this->AreaInfo = new AreaInfo($info->areaInfo);
+        }
+
+        if(!empty($info->contactInfo)){
+            $this->ContactInfo = new ContactInfo($info->contactInfo);
+        }
+
+        if(!empty($info->multimediaObjects)){
+            $this->MultimediaObjects = new MultimediaObjects($info->multimediaObjects);
+        }
+
+        if(!empty($info->hotelInfo)){
+            $this->HotelInfo = new HotelInfo($info->hotelInfo);
+        }
 
         if (!empty($info->contentInfo)) {
             $this->ContentInfos = new ContentInfos();
