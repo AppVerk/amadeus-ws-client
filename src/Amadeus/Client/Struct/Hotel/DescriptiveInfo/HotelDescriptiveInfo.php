@@ -52,5 +52,13 @@ class HotelDescriptiveInfo extends HotelDescriptiveInfoRequestType
         $this->ApplicableDate = $info->applicableDate;
         $this->AffiliationInfo = $info->affiliationInfo;
         $this->HotelInfo = $info->HotelInfo;
+
+        if (!empty($info->contentInfo)) {
+            $this->ContentInfos = new ContentInfos();
+
+            foreach ($info->contentInfo as $info) {
+                $this->ContentInfos->ContentInfo[] = new ContentInfo($info);
+            }
+        }
     }
 }

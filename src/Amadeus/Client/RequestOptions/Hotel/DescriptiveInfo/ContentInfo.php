@@ -3,10 +3,17 @@ declare(strict_types=1);
 
 namespace Amadeus\Client\RequestOptions\Hotel\DescriptiveInfo;
 
-class ContentInfos
+use Amadeus\Client\LoadParamsFromArray;
+
+class ContentInfo extends LoadParamsFromArray
 {
     /**
-     * @var ContentInfo[]
+     * @var string
      */
-    public $contentInfo = [];
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $name;
 }

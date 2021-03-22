@@ -3,16 +3,9 @@ declare(strict_types=1);
 
 namespace Amadeus\Client\RequestOptions\Hotel\DescriptiveInfo;
 
-use Amadeus\Client\Struct\Hotel\DescriptiveInfo\AffiliationInfo;
-use Amadeus\Client\Struct\Hotel\DescriptiveInfo\AreaInfo;
-use Amadeus\Client\Struct\Hotel\DescriptiveInfo\ContactInfo;
-use Amadeus\Client\Struct\Hotel\DescriptiveInfo\ContentInfos;
-use Amadeus\Client\Struct\Hotel\DescriptiveInfo\FacilityInfo;
-use Amadeus\Client\Struct\Hotel\DescriptiveInfo\HotelInfo;
-use Amadeus\Client\Struct\Hotel\DescriptiveInfo\MultimediaObjects;
-use Amadeus\Client\Struct\Hotel\DescriptiveInfo\Policies;
+use Amadeus\Client\LoadParamsFromArray;
 
-class DescriptiveInfo
+class DescriptiveInfo extends LoadParamsFromArray
 {
     /**
      * @var string[]
@@ -75,9 +68,9 @@ class DescriptiveInfo
     public $multimediaObjects;
 
     /**
-     * @var ContentInfos
+     * @var ContentInfo[]
      */
-    public $contentInfos;
+    public $contentInfo = [];
 
     /**
      * @var string
