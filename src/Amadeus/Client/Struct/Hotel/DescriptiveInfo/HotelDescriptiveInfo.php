@@ -47,7 +47,6 @@ class HotelDescriptiveInfo extends HotelDescriptiveInfoRequestType
     {
         $this->MoreDataEchoToken = $info->moreDataEchoToken;
         $this->ApplicableDate = $info->applicableDate;
-        $this->AffiliationInfo = $info->affiliationInfo;
         $this->HotelCode = $info->hotelCode;
         $this->HotelCityCode = $info->hotelCityCode;
         $this->HotelName = $info->hotelName;
@@ -90,6 +89,10 @@ class HotelDescriptiveInfo extends HotelDescriptiveInfoRequestType
 
         if (null !== $info->hotelInfo) {
             $this->HotelInfo = new HotelInfo($info->hotelInfo);
+        }
+
+        if (null !== $info->affiliationInfo) {
+            $this->AffiliationInfo = new AffiliationInfo($info->affiliationInfo);
         }
 
         if (!empty($info->contentInfo)) {

@@ -20,7 +20,7 @@ class DescriptiveInfo extends LoadParamsFromArray
     /**
      * @var string[]
      */
-    public $brandCodeList;
+    public $brandCodeList = [];
 
     /**
      * @var string
