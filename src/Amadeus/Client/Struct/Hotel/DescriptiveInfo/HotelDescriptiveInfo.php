@@ -51,7 +51,19 @@ class HotelDescriptiveInfo extends HotelDescriptiveInfoRequestType
         $this->MoreDataEchoToken = $info->moreDataEchoToken;
         $this->ApplicableDate = $info->applicableDate;
         $this->AffiliationInfo = $info->affiliationInfo;
-        $this->HotelInfo = $info->HotelInfo;
+        $this->FacilityInfo = $info->facilityInfo;
+        $this->Policies = $info->policies;
+        $this->AreaInfo = $info->areaInfo;
+        $this->ContactInfo = $info->contactInfo;
+        $this->MultimediaObjects = $info->multimediaObjects;
+        $this->ChainCode = $info->chainCode;
+        $this->ChainName = $info->chainName;
+        $this->HotelInfo = $info->hotelInfo;
+        $this->HotelCode = $info->hotelCode;
+        $this->HotelCityCode = $info->hotelCityCode;
+        $this->HotelName = $info->hotelName;
+        $this->HotelCodeContext = $info->hotelCodeContext;
+        $this->BrandName = $info->brandName;
 
         if (!empty($info->contentInfo)) {
             $this->ContentInfos = new ContentInfos();
