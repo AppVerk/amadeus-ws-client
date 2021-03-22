@@ -42,12 +42,12 @@ class DescriptiveInfo
     /**
      * @var HotelInfo
      */
-    public $HotelInfo;
+    public $hotelInfo;
 
     /**
      * @var FacilityInfo
      */
-    public $FacilityInfo;
+    public $facilityInfo;
 
     /**
      * @var Policies
