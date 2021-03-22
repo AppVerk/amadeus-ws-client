@@ -12,14 +12,14 @@ class HotelDescriptiveInfo extends HotelDescriptiveInfoRequestType
      *
      * @var string[]
      */
-    public $StateCodeList = [];
+    public $StateCodeList;
 
     /**
      * These may be used to filter the response of requested data.
      *
      * @var string[]
      */
-    public $CountryCodeList = [];
+    public $CountryCodeList;
 
     /**
      * These may be used to filter the response of requested data.
@@ -45,9 +45,6 @@ class HotelDescriptiveInfo extends HotelDescriptiveInfoRequestType
 
     public function __construct(DescriptiveInfo $info)
     {
-        $this->StateCodeList = $info->stateCodeList;
-        $this->CountryCodeList = $info->countryCodeList;
-        $this->BrandCodeList = $info->brandCodeList;
         $this->MoreDataEchoToken = $info->moreDataEchoToken;
         $this->ApplicableDate = $info->applicableDate;
         $this->AffiliationInfo = $info->affiliationInfo;
@@ -58,6 +55,18 @@ class HotelDescriptiveInfo extends HotelDescriptiveInfoRequestType
         $this->BrandName = $info->brandName;
         $this->ChainCode = $info->chainCode;
         $this->ChainName = $info->chainName;
+
+        if (count($info->stateCodeList) > 0) {
+            $this->StateCodeList = $info->stateCodeList;
+        }
+
+        if (count($info->countryCodeList) > 0) {
+            $this->CountryCodeList = $info->countryCodeList;
+        }
+
+        if (count($info->brandCodeList) > 0) {
+            $this->BrandCodeList = $info->brandCodeList;
+        }
 
         if (null !== $info->facilityInfo) {
             $this->FacilityInfo = new FacilityInfo($info->facilityInfo);

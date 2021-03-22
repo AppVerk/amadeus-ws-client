@@ -3,7 +3,7 @@ declare(strict_types = 1);
 
 namespace Amadeus\Client\Struct\Hotel\DescriptiveInfo;
 
-use \Amadeus\Client\RequestOptions\Hotel\DescriptiveInfo\HotelInfo as RequestHotelInfo;
+use Amadeus\Client\RequestOptions\Hotel\DescriptiveInfo\HotelInfo as RequestHotelInfo;
 
 class HotelInfo
 {

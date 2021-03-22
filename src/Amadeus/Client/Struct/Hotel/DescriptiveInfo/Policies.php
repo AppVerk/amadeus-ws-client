@@ -3,7 +3,7 @@ declare(strict_types = 1);
 
 namespace Amadeus\Client\Struct\Hotel\DescriptiveInfo;
 
-use \Amadeus\Client\RequestOptions\Hotel\DescriptiveInfo\Policies as RequestPolicies;
+use Amadeus\Client\RequestOptions\Hotel\DescriptiveInfo\Policies as RequestPolicies;
 
 class Policies extends PoliciesType
 {
