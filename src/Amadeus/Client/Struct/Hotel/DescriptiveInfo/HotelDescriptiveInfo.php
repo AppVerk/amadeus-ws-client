@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace Amadeus\Client\Struct\Hotel\DescriptiveInfo;
 
@@ -59,27 +59,27 @@ class HotelDescriptiveInfo extends HotelDescriptiveInfoRequestType
         $this->ChainCode = $info->chainCode;
         $this->ChainName = $info->chainName;
 
-        if (!empty($info->facilityInfo)) {
+        if (null !== $info->facilityInfo) {
             $this->FacilityInfo = new FacilityInfo($info->facilityInfo);
         }
 
-        if (!empty($info->policies)) {
+        if (null !== $info->policies) {
             $this->Policies = new Policies($info->policies);
         }
 
-        if(!empty($info->areaInfo)){
+        if (null !== $info->areaInfo) {
             $this->AreaInfo = new AreaInfo($info->areaInfo);
         }
 
-        if(!empty($info->contactInfo)){
+        if (null !== $info->contactInfo) {
             $this->ContactInfo = new ContactInfo($info->contactInfo);
         }
 
-        if(!empty($info->multimediaObjects)){
+        if (null !== $info->multimediaObjects) {
             $this->MultimediaObjects = new MultimediaObjects($info->multimediaObjects);
         }
 
-        if(!empty($info->hotelInfo)){
+        if (null !== $info->hotelInfo) {
             $this->HotelInfo = new HotelInfo($info->hotelInfo);
         }
 

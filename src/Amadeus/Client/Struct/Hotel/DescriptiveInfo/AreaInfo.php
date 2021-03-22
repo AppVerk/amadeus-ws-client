@@ -1,7 +1,9 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace Amadeus\Client\Struct\Hotel\DescriptiveInfo;
+
+use \Amadeus\Client\RequestOptions\Hotel\DescriptiveInfo\AreaInfo as RequestAreaInfo;
 
 class AreaInfo
 {
@@ -26,7 +28,8 @@ class AreaInfo
      */
     public $SendRecreations;
 
-    public function __construct(\Amadeus\Client\RequestOptions\Hotel\DescriptiveInfo\AreaInfo $info){
+    public function __construct(RequestAreaInfo $info)
+    {
         $this->SendRefPoints = $info->sendRefPoints;
         $this->SendAttractions = $info->sendAttractions;
         $this->SendRecreations = $info->sendRecreations;

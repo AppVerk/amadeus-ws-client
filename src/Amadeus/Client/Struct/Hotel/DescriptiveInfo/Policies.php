@@ -1,7 +1,9 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace Amadeus\Client\Struct\Hotel\DescriptiveInfo;
+
+use \Amadeus\Client\RequestOptions\Hotel\DescriptiveInfo\Policies as RequestPolicies;
 
 class Policies extends PoliciesType
 {
@@ -33,7 +35,8 @@ class Policies extends PoliciesType
      */
     public $SendPolicies;
 
-    public function __construct(\Amadeus\Client\RequestOptions\Hotel\DescriptiveInfo\Policies $info){
+    public function __construct(RequestPolicies $info)
+    {
         $this->GuaranteeRoomTypeViaCRC = $info->guaranteeRoomTypeViaCRC;
         $this->GuaranteeRoomTypeViaGDS = $info->guaranteeRoomTypeViaGDS;
         $this->GuaranteeRoomTypeViaProperty = $info->guaranteeRoomTypeViaProperty;

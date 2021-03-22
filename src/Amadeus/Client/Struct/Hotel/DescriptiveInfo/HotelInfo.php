@@ -1,7 +1,9 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace Amadeus\Client\Struct\Hotel\DescriptiveInfo;
+
+use \Amadeus\Client\RequestOptions\Hotel\DescriptiveInfo\HotelInfo as RequestHotelInfo;
 
 class HotelInfo
 {
@@ -27,4 +29,11 @@ class HotelInfo
      * @var string
      */
     public $HotelStatusCode;
+
+    public function __construct(RequestHotelInfo $info)
+    {
+        $this->SendData = $info->sendData;
+        $this->HotelStatus = $info->hotelStatus;
+        $this->HotelStatusCode = $info->hotelStatusCode;
+    }
 }
