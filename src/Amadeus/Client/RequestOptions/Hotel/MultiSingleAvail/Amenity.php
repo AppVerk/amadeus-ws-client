@@ -366,6 +366,7 @@ class Amenity extends LoadParamsFromArray
      */
     public function belongsToRoom()
     {
+        //@todo implement logic for determining amenities kinds
         return false;
     }
 }

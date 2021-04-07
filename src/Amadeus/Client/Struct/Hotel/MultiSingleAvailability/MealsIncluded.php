@@ -30,12 +30,14 @@ class MealsIncluded
     /**
      * Used to identify the types of meals included with a rate plan. Refer to OTA Code List Meal Plan Type (MPT).
      *
-     * @var string[]
+     * @var string[]|null
      */
-    public $MealPlanCodes = [];
+    public $MealPlanCodes;
 
     public function __construct(array $mealPlanCodes)
     {
-        $this->MealPlanCodes = $mealPlanCodes;
+        if (!empty($mealPlanCodes)) {
+            $this->MealPlanCodes = $mealPlanCodes;
+        }
     }
 }
