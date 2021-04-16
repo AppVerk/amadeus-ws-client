@@ -44,6 +44,11 @@ class Segment extends LoadParamsFromArray
     public $infoSource;
 
     /**
+     * @var string
+     */
+    public $moreDataEchoToken;
+
+    /**
      * @var bool
      */
     public $bestOnly;

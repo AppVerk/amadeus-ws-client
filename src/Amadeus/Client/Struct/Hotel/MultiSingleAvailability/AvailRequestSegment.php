@@ -53,6 +53,7 @@ class AvailRequestSegment
     {
         if ($segment instanceof Segment) {
             $this->InfoSource = $segment->infoSource;
+            $this->MoreDataEchoToken = $segment->moreDataEchoToken;
             $this->HotelSearchCriteria = new HotelSearchCriteria(
                 $segment->criteria,
                 $segment->bestOnly,
