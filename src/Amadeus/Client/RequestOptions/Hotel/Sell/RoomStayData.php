@@ -20,10 +20,7 @@
  * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
  */
 
-namespace Amadeus\Client\Struct\Hotel\Sell;
-
-use Amadeus\Client\RequestOptions\Hotel\Sell\RoomStayData as RoomStayDataRequest;
-use Amadeus\Client\Struct\Offer\ConfirmHotel\RoomStayData as BaseRoomStayData;
+namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
 /**
  * RoomStayData
@@ -31,11 +28,14 @@ use Amadeus\Client\Struct\Offer\ConfirmHotel\RoomStayData as BaseRoomStayData;
  * @package Amadeus\Client\Struct\Hotel\Sell
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class RoomStayData extends BaseRoomStayData
+class RoomStayData
 {
-    public function __construct(RoomStayDataRequest $roomStayData) {
-        $this->markerRoomStayData = $roomStayData->markerRoomStayData;
-        $this->globalBookingInfo = $roomStayData->globalBookingInfo;
-        $this->roomList = [];
-    }
+    public $markerRoomStayData;
+
+    public ?GlobalBookingInfo $globalBookingInfo = null;
+    
+    /**
+     * @var RoomList[] 
+     */
+    public array $roomList;
 }

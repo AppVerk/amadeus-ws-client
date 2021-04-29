@@ -95,5 +95,7 @@ class Sell extends BaseWsMessage
     public function __construct(HotelSellOptions $options)
     {
         $this->roomStayData = $options->roomStayData;
+        $this->travelAgentRef = $options->travelAgentRef;
+        $this->groupIndicator = $options->groupIndicator;
     }
 }
