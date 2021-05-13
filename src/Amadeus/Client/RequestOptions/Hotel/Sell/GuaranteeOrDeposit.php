@@ -27,4 +27,15 @@ class GuaranteeOrDeposit
     public PaymentInfo $paymentInfo;
 
     public GroupCreditCardInfo $groupCreditCardInfo;
+
+    public function __construct(CcInfo $ccInfo, PaymentDetails $paymentDetails){
+        $this->paymentInfo = new PaymentInfo();
+        $this->paymentInfo->paymentDetails = $paymentDetails;
+
+        $creditCardInfo = new CreditCardInfo();
+        $creditCardInfo->ccInfo = $ccInfo;
+
+        $this->groupCreditCardInfo = new GroupCreditCardInfo();
+        $this->groupCreditCardInfo->creditCardInfo = $creditCardInfo;
+    }
 }

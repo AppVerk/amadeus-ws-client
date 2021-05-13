@@ -30,5 +30,14 @@ class GroupIndicator
     /**
      * @var StatusDetails[]
      */
-    public array $statusDetails;
+    public array $statusDetails = [];
+
+    /**
+     * @param int[] $details
+     */
+    public function __construct(array $details) {
+        foreach ($details as $indicator => $action){
+            $this->statusDetails[] = new StatusDetails($indicator, $action);
+        }
+    }
 }

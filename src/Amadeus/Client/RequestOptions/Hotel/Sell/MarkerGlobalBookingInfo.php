@@ -22,10 +22,9 @@
 
 namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
-use Amadeus\Client\LoadParamsFromArray;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\HotelReference;
 
-class MarkerGlobalBookingInfo extends LoadParamsFromArray
+class MarkerGlobalBookingInfo
 {
     /**
      * @var HotelReference
@@ -36,4 +35,10 @@ class MarkerGlobalBookingInfo extends LoadParamsFromArray
      * @var string
      */
     public $hotelName;
+
+    public function __construct(string $hotelName, HotelReference $hotelReference)
+    {
+        $this->hotelName = $hotelName;
+        $this->hotelReference = $hotelReference;
+    }
 }

@@ -27,4 +27,9 @@ class StatusDetails
     public string $indicator;
     
     public int $action;
+
+    public function __construct(string $indicator, int $action) {
+        $this->indicator = $indicator;
+        $this->action = $action;
+    }
 }

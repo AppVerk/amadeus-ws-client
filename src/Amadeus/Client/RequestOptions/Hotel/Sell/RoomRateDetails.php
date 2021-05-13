@@ -23,10 +23,21 @@
 namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
 use Amadeus\Client\Struct\Offer\ConfirmHotel\GuaranteeOrDeposit;
+use Amadeus\Client\RequestOptions\Hotel\Sell\ReferenceDetails;
+use Amadeus\Client\RequestOptions\Hotel\Sell\HotelProductReference;
 
 class RoomRateDetails
 {
     public $marker;
     public $markerOfExtra;
     public HotelProductReference $hotelProductReference;
+
+    public function __construct(string $referenceType, string $referenceCode){
+        $referenceDetails = new ReferenceDetails();
+        $referenceDetails->type = $referenceType;
+        $referenceDetails->value = $referenceCode;
+
+        $this->hotelProductReference = new HotelProductReference();
+        $this->hotelProductReference->referenceDetails = $referenceDetails;
+    }
 }
