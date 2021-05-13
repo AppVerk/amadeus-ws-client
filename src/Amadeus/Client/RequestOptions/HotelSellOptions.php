@@ -27,6 +27,7 @@ use Amadeus\Client\RequestOptions\Hotel\Sell\BookingCompany;
 use Amadeus\Client\RequestOptions\Hotel\Sell\GroupIndicator;
 use Amadeus\Client\RequestOptions\Hotel\Sell\RoomStayData;
 use Amadeus\Client\RequestOptions\Hotel\Sell\TravelAgentRef;
+use Amadeus\Client\RequestOptions\Hotel\Sell\SystemIdentifier;
 
 /**
  * Hotel_Sell Request Options
@@ -62,6 +63,11 @@ class HotelSellOptions extends Base
      * @var Booker
      */
     public $booker;
+
+    /**
+     * @var SystemIdentifier
+     */
+    public $systemIdentifier;
 
     /**
      * @var GroupIndicator

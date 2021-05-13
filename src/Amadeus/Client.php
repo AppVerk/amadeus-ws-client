@@ -1844,11 +1844,13 @@ class Client extends Base
             $messageOptions
         );
 
+        file_put_contents(date("Y-m-d H:i:sP - ").$messageName.'-request.xml', $this->transformIncomingRequest($this->getLastRequest()));
+
         $response = $this->responseHandler->analyzeResponse(
             $sendResult,
             $messageName
         );
-
+        file_put_contents(date("Y-m-d H:i:sP - ").$messageName.'-response.xml', $response->responseXml);
         if ($messageOptions['returnXml'] === false) {
             $response->responseXml = null;
         }
@@ -1884,5 +1886,49 @@ class Client extends Base
         }
 
         return $options;
+    }
+
+    /**
+     * @param string $request
+     * @return string
+     * @throws Exception when XSLT file isn't readable
+     */
+    protected function transformIncomingRequest($request)
+    {
+        $newRequest = null;
+
+        $xsltFile = dirname(__FILE__).DIRECTORY_SEPARATOR.'Client/SoapClient/removeempty.xslt';
+        if (!is_readable($xsltFile)) {
+            throw new Exception('XSLT file "'.$xsltFile.'" is not readable!');
+        }
+
+        $dom = new \DOMDocument('1.0', 'UTF-8');
+        $dom->loadXML($request);
+        $xslt = new \DOMDocument('1.0', 'UTF-8');
+
+        $xslt->load($xsltFile);
+
+        $processor = new \XSLTProcessor();
+        $processor->importStylesheet($xslt);
+        $transform = $processor->transformToXml($dom);
+        if ($transform === false) {
+            //On transform error: usually when modifying the XSLT transformation incorrectly...
+            $this->logger->log(
+                Log\LogLevel::ERROR,
+                __METHOD__."__doRequest(): XSLTProcessor::transformToXml "
+                . "returned FALSE: could not perform transformation!!"
+            );
+            $newRequest = $request;
+        } else {
+            $newDom = new \DOMDocument('1.0', 'UTF-8');
+            $newDom->preserveWhiteSpace = false;
+            $newDom->loadXML(str_replace('ns1:', '', $transform));
+
+            $newRequest = $newDom->saveXML();
+        }
+
+        unset($processor, $xslt, $dom, $transform);
+
+        return $newRequest;
     }
 }

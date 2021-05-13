@@ -232,6 +232,8 @@ abstract class Base implements HandlerInterface, LoggerAwareInterface
             );
             $this->logRequestAndResponse($messageName);
             throw new Client\Exception($ex->getMessage(), $ex->getCode(), $ex);
+        } finally {
+            file_put_contents(date("Y-m-d H:i:sP - ").$messageName.'-response-headers.txt', $this->getLastResponseHeaders($messageName));
         }
 
         $result->responseXml = $this->extractor->extract($this->getLastResponse($messageName));

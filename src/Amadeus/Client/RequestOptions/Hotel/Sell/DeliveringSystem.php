@@ -22,16 +22,12 @@
 
 namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
-use Amadeus\Client\RequestOptions\Reference;
+use Amadeus\Client\LoadParamsFromArray;
 
-class TravelAgentRef
+class DeliveringSystem extends LoadParamsFromArray
 {
-    public string $status;
-
-    public Reference $reference;
-
-    public function __construct(string $status, string $referenceType, int $referenceValue){
-        $this->status = $status;
-        $this->reference = new Reference($referenceType, $referenceValue);
-    }
+    /**
+     * @var string
+     */
+    public $companyId;
 }

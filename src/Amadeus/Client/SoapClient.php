@@ -78,7 +78,11 @@ class SoapClient extends \SoapClient implements Log\LoggerAwareInterface
         }
 
         $newRequest = $this->transformIncomingRequest($request);
-        if($action == 'http://webservices.amadeus.com/HBKRCQ_20_1_1A'){
+
+        print_r($action);
+        if(in_array($action, [
+            'http://webservices.amadeus.com/HBKRCQ_20_1_1A',
+        ])){
             print_r($newRequest);
         }
         return parent::__doRequest($newRequest, $location, $action, $version, $oneWay);

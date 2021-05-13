@@ -24,5 +24,5 @@ namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
 class OriginIdentification
 {
-    public int $originatorId;
+    public string $originatorId;
 }
