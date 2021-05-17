@@ -3478,6 +3478,14 @@ Service_BookPriceService
 
 *docs missing*
 
+*****
+Hotel
+*****
+----------
+Hotel_Sell
+----------
+
+*coming soon*
 
 ***
 FOP
