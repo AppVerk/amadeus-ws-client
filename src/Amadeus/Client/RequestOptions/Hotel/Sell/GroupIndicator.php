@@ -29,9 +29,9 @@ use Amadeus\Client\LoadParamsFromArray;
  */
 class GroupIndicator extends LoadParamsFromArray
 {
-    private const GROUP_BILLING = 'GB';
-    
-    private const GROUP_BOOKING = 'GR';
+    public const GROUP_BILLING = 'GB';
+
+    public const GROUP_BOOKING = 'GR';
 
     /**
      * @var StatusDetails[]
