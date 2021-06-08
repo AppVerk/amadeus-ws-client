@@ -27,6 +27,10 @@ use Amadeus\Client\Struct\Offer\ConfirmHotel\GuaranteeOrDeposit;
 
 class ReferenceDetails extends LoadParamsFromArray
 {
+    public const BOOKING_CODE = 'BC';
+
+    public const HOTEL_PRODUCT_INDEX = 'HPI';
+    
     public string $type;
 
     public string $value;
