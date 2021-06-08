@@ -27,6 +27,14 @@ use Amadeus\Client\RequestOptions\Reference;
 
 class TravelAgentRef extends LoadParamsFromArray
 {
+    public const TRAVEL_AGENT_PHONE = 'AP';
+
+    public const TRAVEL_AGENT_EMAIL = 'APE';
+
+    public const TRAVEL_AGENT_FAX = 'APF';
+
+    public const SEGMENT_TATTOO_REFERENCE_NUMBER = 'ST';
+
     public string $status;
 
     public Reference $reference;
