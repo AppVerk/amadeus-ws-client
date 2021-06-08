@@ -22,7 +22,9 @@
 
 namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
-class RepresentativeParties
+use Amadeus\Client\LoadParamsFromArray;
+
+class RepresentativeParties extends LoadParamsFromArray
 {
     public OccupantList $occupantList;
 }

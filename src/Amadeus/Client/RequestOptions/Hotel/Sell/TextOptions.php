@@ -22,7 +22,9 @@
 
 namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
-class TextOptions
+use Amadeus\Client\LoadParamsFromArray;
+
+class TextOptions extends LoadParamsFromArray
 {
     public RemarkDetails $remarkDetails;
 }

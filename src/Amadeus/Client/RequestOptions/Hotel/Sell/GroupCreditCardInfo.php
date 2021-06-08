@@ -22,7 +22,9 @@
 
 namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
-class GroupCreditCardInfo
+use Amadeus\Client\LoadParamsFromArray;
+
+class GroupCreditCardInfo extends LoadParamsFromArray
 {
     public CreditCardInfo $creditCardInfo;
 }

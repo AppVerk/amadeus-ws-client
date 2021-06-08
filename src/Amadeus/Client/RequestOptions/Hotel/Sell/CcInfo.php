@@ -22,7 +22,9 @@
 
 namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
-class CcInfo
+use Amadeus\Client\LoadParamsFromArray;
+
+class CcInfo extends LoadParamsFromArray
 {
     public string $vendorCode;
     public string $cardNumber;

@@ -22,9 +22,10 @@
 
 namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
+use Amadeus\Client\LoadParamsFromArray;
 use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\HotelReference;
 
-class MarkerGlobalBookingInfo
+class MarkerGlobalBookingInfo extends LoadParamsFromArray
 {
     /**
      * @var HotelReference

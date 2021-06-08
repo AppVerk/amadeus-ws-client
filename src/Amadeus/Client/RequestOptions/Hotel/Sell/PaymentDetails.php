@@ -22,7 +22,9 @@
 
 namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
-class PaymentDetails
+use Amadeus\Client\LoadParamsFromArray;
+
+class PaymentDetails extends LoadParamsFromArray
 {
     public int $formOfPaymentCode;
     public int $paymentType;

@@ -22,7 +22,9 @@
 
 namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
-class OccupantList
+use Amadeus\Client\LoadParamsFromArray;
+
+class OccupantList extends LoadParamsFromArray
 {
     public PassengerReference $passengerReference;
 }

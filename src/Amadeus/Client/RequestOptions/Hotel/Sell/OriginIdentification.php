@@ -22,7 +22,9 @@
 
 namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
-class OriginIdentification
+use Amadeus\Client\LoadParamsFromArray;
+
+class OriginIdentification extends LoadParamsFromArray
 {
     public string $originatorId;
 }

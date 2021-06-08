@@ -22,7 +22,9 @@
 
 namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
-class StatusDetails
+use Amadeus\Client\LoadParamsFromArray;
+
+class StatusDetails extends LoadParamsFromArray
 {
     public string $indicator;
     

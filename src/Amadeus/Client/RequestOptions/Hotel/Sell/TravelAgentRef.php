@@ -22,9 +22,10 @@
 
 namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
+use Amadeus\Client\LoadParamsFromArray;
 use Amadeus\Client\RequestOptions\Reference;
 
-class TravelAgentRef
+class TravelAgentRef extends LoadParamsFromArray
 {
     public string $status;
 

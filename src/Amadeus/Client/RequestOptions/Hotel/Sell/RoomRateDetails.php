@@ -22,11 +22,12 @@
 
 namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
+use Amadeus\Client\LoadParamsFromArray;
 use Amadeus\Client\Struct\Offer\ConfirmHotel\GuaranteeOrDeposit;
 use Amadeus\Client\RequestOptions\Hotel\Sell\ReferenceDetails;
 use Amadeus\Client\RequestOptions\Hotel\Sell\HotelProductReference;
 
-class RoomRateDetails
+class RoomRateDetails extends LoadParamsFromArray
 {
     public $marker;
     public $markerOfExtra;

@@ -22,11 +22,17 @@
 
 namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
+use Amadeus\Client\LoadParamsFromArray;
+
 /**
  * GlobalBookingInfo
  */
-class GroupIndicator
+class GroupIndicator extends LoadParamsFromArray
 {
+    private const GROUP_BILLING = 'GB';
+    
+    private const GROUP_BOOKING = 'GR';
+
     /**
      * @var StatusDetails[]
      */

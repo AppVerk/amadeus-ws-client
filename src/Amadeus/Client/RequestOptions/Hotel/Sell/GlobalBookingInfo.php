@@ -22,10 +22,12 @@
 
 namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
+use Amadeus\Client\LoadParamsFromArray;
+
 /**
  * GlobalBookingInfo
  */
-class GlobalBookingInfo
+class GlobalBookingInfo extends LoadParamsFromArray
 {
     public $markerGlobalBookingInfo;
 

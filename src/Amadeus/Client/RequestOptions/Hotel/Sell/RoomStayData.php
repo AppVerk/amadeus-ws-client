@@ -22,13 +22,15 @@
 
 namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
+use Amadeus\Client\LoadParamsFromArray;
+
 /**
  * RoomStayData
  *
  * @package Amadeus\Client\Struct\Hotel\Sell
  * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
  */
-class RoomStayData
+class RoomStayData extends LoadParamsFromArray
 {
     public $markerRoomStayData;
 

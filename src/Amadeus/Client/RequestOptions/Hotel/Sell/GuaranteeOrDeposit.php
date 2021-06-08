@@ -22,7 +22,9 @@
 
 namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
-class GuaranteeOrDeposit
+use Amadeus\Client\LoadParamsFromArray;
+
+class GuaranteeOrDeposit extends LoadParamsFromArray
 {
     public PaymentInfo $paymentInfo;
 

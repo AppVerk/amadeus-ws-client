@@ -22,7 +22,9 @@
 
 namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
-class RoomList
+use Amadeus\Client\LoadParamsFromArray;
+
+class RoomList extends LoadParamsFromArray
 {
     public $markerRoomstayQuery;
     public RoomRateDetails $roomRateDetails;

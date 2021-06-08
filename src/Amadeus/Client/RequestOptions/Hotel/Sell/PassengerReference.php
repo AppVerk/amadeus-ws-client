@@ -22,12 +22,31 @@
 
 namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
+use Amadeus\Client\LoadParamsFromArray;
+
 /**
  * GlobalBookingInfo
  */
-class PassengerReference
+class PassengerReference extends LoadParamsFromArray
 {
+    public const BOOKING_HOLDER_NON_OCCUPANT_PAX_TATTOO = 'BHN';
+
+    public const BOOKING_HOLDER_OCCUPANT_PAX_TATTOO = 'BHO';
+
+    public const BOOKING_OCCUPANT_PAX_TATTOO = 'BOP';
+
+    public const GROUP_NAME_TATTOO = 'GRN';
+
+    public const HOLDER_PAX_TATTOO = 'P';
+
+    public const ROOM_MAIN_PAX_TATTOO_NON_OCCUPANT = 'RMN';
+
+    public const ROOM_MAIN_PAX_TATTOO_OCCUPANT = 'RMO';
+
+    public const ROOM_OCCUPANT_PAX_TATTOO = 'ROP';
+
     public string $type;
+
     public int $value;
 
     public function __construct(string $type, int $value){
