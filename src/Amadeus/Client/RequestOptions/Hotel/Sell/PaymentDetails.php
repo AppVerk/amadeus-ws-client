@@ -26,6 +26,28 @@ use Amadeus\Client\LoadParamsFromArray;
 
 class PaymentDetails extends LoadParamsFromArray
 {
+    public const FORM_OF_PAYMENT_CREDIT_CARD = 1;
+
+    public const FORM_OF_PAYMENT_TRAVEL_AGENT_IDENTIFICATION = 10;
+
+    public const FORM_OF_PAYMENT_CORPORATE_IDENTIFICATION = 12;
+
+    public const FORM_OF_PAYMENT_ADDRESS = 14;
+
+    public const FORM_OF_PAYMENT_WIRE_PAYMENT = 28;
+
+    public const FORM_OF_PAYMENT_MISCELLANEOUS_CHARGE_ORDER = 4;
+
+    public const FORM_OF_PAYMENT_CHECK = 6;
+
+    public const FORM_OF_PAYMENT_BUSINESS_ACCOUNT = 9;
+
+    public const PAYMENT_TYPE_GUARANTEED = 1;
+
+    public const PAYMENT_TYPE_DEPOSIT = 2;
+
+    public const SERVICE_TO_PAY_HOTEL = 3;
+
     public int $formOfPaymentCode;
     public int $paymentType;
     public int $serviceToPay;
