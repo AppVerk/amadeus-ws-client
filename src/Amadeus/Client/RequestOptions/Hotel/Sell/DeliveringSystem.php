@@ -26,6 +26,20 @@ use Amadeus\Client\LoadParamsFromArray;
 
 class DeliveringSystem extends LoadParamsFromArray
 {
+    public const ERETAIL = 'AERE';
+
+    public const ETRAVEL_MANAGEMENT = 'AETM';
+
+    public const COMMAND_PAGE = 'COMM';
+
+    public const SELL_v2_OR_SELL_CONNECT = 'SECO';
+
+    public const SELLING_PLATFORM_CLASSIC = 'SELL';
+
+    public const NON_SPECIFIC_PRODUCT_FROM_SELLING_PLATFORM = 'SEP';
+
+    public const WEBSERVICES = 'WEBS';
+
     /**
      * @var string
      */
