@@ -26,11 +26,23 @@ use Amadeus\Client\LoadParamsFromArray;
 
 class RemarkDetails extends LoadParamsFromArray
 {
+    public const SPECIAL_REQUEST_TYPE = 'HSI';
+
+    public const SPECIAL_REQUEST_BUSINESS_FUNCTION = 3;
+
+    public const SPECIAL_REQUEST_SOURCE = 'M';
+
+    public const SPECIAL_REQUEST_ENCODING = 7;
+
+    public const FREE_TEXT_MAX_LENGTH = 256;
+
     public string $type;
 
     public string $freetext;
 
     public string $language;
+
+    public string $businessFunction;
 
     public string $source;
 
