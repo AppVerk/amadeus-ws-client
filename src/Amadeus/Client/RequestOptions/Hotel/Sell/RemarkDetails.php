@@ -42,9 +42,9 @@ class RemarkDetails extends LoadParamsFromArray
 
     public string $language;
 
-    public string $businessFunction;
+    public int $businessFunction;
 
     public string $source;
 
-    public string $encoding;
+    public int $encoding;
 }
