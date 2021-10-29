@@ -30,5 +30,8 @@ namespace Amadeus\Client\Struct\Offer\ConfirmHotel;
  */
 class TextOptions
 {
-    //TODO
+    /**
+     * @var RemarkDetails
+     */
+    public $remarkDetails;
 }

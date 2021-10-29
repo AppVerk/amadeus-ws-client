@@ -22,7 +22,7 @@
 
 namespace Amadeus\Client\Struct\Pnr\AddMultiElements;
 
-use \Amadeus\Client\RequestOptions\Pnr\Element\ServiceRequest as ServiceRequestOptions;
+use Amadeus\Client\RequestOptions\Pnr\Element\ServiceRequest as ServiceRequestOptions;
 
 /**
  * ServiceRequest

@@ -1,0 +1,137 @@
+<?php
+/**
+ * amadeus-ws-client
+ *
+ * Copyright 2015 Amadeus Benelux NV
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @package Amadeus
+ * @license https://opensource.org/licenses/Apache-2.0 Apache 2.0
+ */
+
+namespace Amadeus\Client\Struct\Hotel\MultiSingleAvailability;
+
+use Amadeus\Client\RequestOptions\Hotel\MultiSingleAvail\Criteria;
+
+/**
+ * Criterion
+ *
+ * @package Amadeus\Client\Struct\Hotel\MultiSingleAvailability
+ * @author Dieter Devlieghere <dieter.devlieghere@benelux.amadeus.com>
+ */
+class Criterion extends HotelSearchCriterionType
+{
+    /***
+     * @var string
+     */
+    public $AlternateAvailability;
+
+    /***
+     * @var string
+     */
+    public $AddressSearchScope;
+
+    /***
+     * @var string
+     */
+    public $InfoSource;
+
+    /***
+     * @var string
+     */
+    public $MoreDataEchoToken;
+
+    /**
+     * Criterion constructor.
+     *
+     * @param Criteria $criterion
+     */
+    public function __construct(Criteria $criterion)
+    {
+        $this->ExactMatch = $criterion->exactMatch;
+        $this->Radius = $criterion->radius;
+
+        foreach ($criterion->hotelReferences as $hotelReference) {
+            $this->HotelRef[] = new HotelRef($hotelReference);
+        }
+
+        foreach ($criterion->pointReferences as $pointReference) {
+            $this->RefPoint[] = new RefPoint($pointReference);
+        }
+
+        if (null !== $criterion->stayStart && null !== $criterion->stayEnd) {
+            $this->StayDateRange = new StayDateRange($criterion->stayStart, $criterion->stayEnd);
+        }
+
+        foreach ($criterion->rates as $rate) {
+            $this->RateRange[] = new RateRange($rate);
+        }
+
+        if (!empty($criterion->rooms)) {
+            $this->RoomStayCandidates = new RoomStayCandidates();
+
+            foreach ($criterion->rooms as $room) {
+                $this->RoomStayCandidates->RoomStayCandidate[] = new RoomStayCandidate($room);
+            }
+        }
+
+        if (null !== $criterion->position) {
+            $this->Position = new Position();
+            $this->Position->Latitude = null === $criterion->position->latitude
+                ? null
+                : number_format($criterion->position->latitude, 5, '', '')
+            ;
+            $this->Position->Longitude = null === $criterion->position->longitude
+                ? null
+                : number_format($criterion->position->longitude, 5, '', '')
+            ;
+            $this->Position->PositionAccuracy = $criterion->position->positionAccuracy;
+        }
+
+        if (null !== $criterion->radius) {
+            $this->Radius = new Radius();
+            $this->Radius->Distance = $criterion->radius->distance;
+            $this->Radius->DistanceMeasure = $criterion->radius->distanceMeasure;
+            $this->Radius->UnitOfMeasureCode = $criterion->radius->unitOfMeasureCode;
+        }
+
+        foreach ($criterion->avard as $item) {
+            $this->Award[] = new Award($item);
+        }
+        
+        if (null !== $criterion->meelPlan) {
+            $this->MealPlan = new MealPlan($criterion->meelPlan);
+        }
+
+        if (!empty($criterion->ratePlanCandidates)) {
+            $this->RatePlanCandidates = new RatePlanCandidates();
+
+            foreach ($criterion->ratePlanCandidates as $ratePlan) {
+                $this->RatePlanCandidates->RatePlanCandidate[] = new RatePlanCandidate($ratePlan);
+            }
+        }
+
+        foreach ($criterion->amenity as $item) {
+            if ($item->belongsToRoom()) {
+                $this->RoomAmenity[] = new RoomAmenity($item);
+                
+                continue;
+            }
+
+            $this->HotelAmenity = new HotelAmenity($item);
+        }
+
+        $this->AlternateAvailability = $criterion->alternateAvailability;
+    }
+}

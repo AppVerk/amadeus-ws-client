@@ -79,7 +79,13 @@ class SoapClient extends \SoapClient implements Log\LoggerAwareInterface
 
         $newRequest = $this->transformIncomingRequest($request);
 
-        return parent::__doRequest($newRequest, $location, $action, $version, $oneWay);
+        $this->logger->debug($newRequest);
+
+        $response = parent::__doRequest($newRequest, $location, $action, $version, $oneWay);
+
+        $this->logger->debug((string) $response);
+
+        return $response;
     }
 
     /**
@@ -116,7 +122,7 @@ class SoapClient extends \SoapClient implements Log\LoggerAwareInterface
         } else {
             $newDom = new \DOMDocument('1.0', 'UTF-8');
             $newDom->preserveWhiteSpace = false;
-            $newDom->loadXML($transform);
+            $newDom->loadXML(str_replace('ns1:', '', $transform));
 
             $newRequest = $newDom->saveXML();
         }
