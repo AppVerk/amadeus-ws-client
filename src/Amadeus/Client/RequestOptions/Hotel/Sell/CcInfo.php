@@ -31,4 +31,6 @@ class CcInfo extends LoadParamsFromArray
     public string $securityId;
     public string $expiryDate;
     public string $ccHolderName;
+    public ?string $firstName = null;
+    public ?string $surname = null;
 }
