@@ -23,11 +23,8 @@
 namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 
 use Amadeus\Client\LoadParamsFromArray;
-use Amadeus\Client\Struct\Offer\ConfirmHotel\GuaranteeOrDeposit;
 
-class GuestList extends LoadParamsFromArray
+class Age extends LoadParamsFromArray
 {
-    public OccupantList $occupantList;
-
-    public ?Age $age = null;
+    public QuantityDetails $quantityDetails;
 }

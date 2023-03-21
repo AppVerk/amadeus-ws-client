@@ -25,9 +25,9 @@ namespace Amadeus\Client\RequestOptions\Hotel\Sell;
 use Amadeus\Client\LoadParamsFromArray;
 use Amadeus\Client\Struct\Offer\ConfirmHotel\GuaranteeOrDeposit;
 
-class GuestList extends LoadParamsFromArray
+class QuantityDetails extends LoadParamsFromArray
 {
-    public OccupantList $occupantList;
+    public string $qualifier;
 
-    public ?Age $age = null;
+    public int $value;
 }
