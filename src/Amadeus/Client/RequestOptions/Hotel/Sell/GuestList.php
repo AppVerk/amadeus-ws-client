@@ -27,7 +27,7 @@ use Amadeus\Client\Struct\Offer\ConfirmHotel\GuaranteeOrDeposit;
 
 class GuestList extends LoadParamsFromArray
 {
-    public OccupantList $occupantList;
+    public ?OccupantList $occupantList = null;
 
     public ?Age $age = null;
 }
