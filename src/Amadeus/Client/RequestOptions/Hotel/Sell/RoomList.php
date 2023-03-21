@@ -29,5 +29,5 @@ class RoomList extends LoadParamsFromArray
     public $markerRoomstayQuery;
     public RoomRateDetails $roomRateDetails;
     public GuaranteeOrDeposit $guaranteeOrDeposit;
-    public GuestList $guestList;
+    public array $guestList;
 }
