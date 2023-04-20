@@ -307,6 +307,25 @@ class Client extends Base
     }
 
     /**
+     * Hotel_CompleteReservationDetails - Get hotel complete reservation details.
+     *
+     * https://webservices.amadeus.com/extranet/viewService.do?id=25&flavourId=1&menuId=functional
+     *
+     * @param RequestOptions\HotelCompleteReservationDetailsOptions $options
+     * @param array $messageOptions (OPTIONAL)
+     * @return Result
+     * @throws Client\InvalidMessageException
+     * @throws Client\RequestCreator\MessageVersionUnsupportedException
+     * @throws Exception
+     */
+    public function hotelCompleteReservationDetails(RequestOptions\HotelCompleteReservationDetailsOptions $options, $messageOptions = [])
+    {
+        $msgName = 'Hotel_CompleteReservationDetails';
+
+        return $this->callMessage($msgName, $options, $messageOptions);
+    }
+
+    /**
      * PNR_RetrieveAndDisplay - Retrieve an Amadeus PNR by record locator including extra info
      *
      * This extra info is info you cannot see in the regular PNR, like Offers.
