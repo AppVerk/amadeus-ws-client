@@ -30,14 +30,15 @@ class GuaranteeOrDeposit extends LoadParamsFromArray
 
     public GroupCreditCardInfo $groupCreditCardInfo;
 
-    public function __construct(CcInfo $ccInfo, PaymentDetails $paymentDetails){
+    public function __construct(?CcInfo $ccInfo, PaymentDetails $paymentDetails){
         $this->paymentInfo = new PaymentInfo();
         $this->paymentInfo->paymentDetails = $paymentDetails;
+        if($ccInfo !== null) {
+            $creditCardInfo = new CreditCardInfo();
+            $creditCardInfo->ccInfo = $ccInfo;
 
-        $creditCardInfo = new CreditCardInfo();
-        $creditCardInfo->ccInfo = $ccInfo;
-
-        $this->groupCreditCardInfo = new GroupCreditCardInfo();
-        $this->groupCreditCardInfo->creditCardInfo = $creditCardInfo;
+            $this->groupCreditCardInfo = new GroupCreditCardInfo();
+            $this->groupCreditCardInfo->creditCardInfo = $creditCardInfo;
+        }
     }
 }
